@@ -1,0 +1,12 @@
+[
+  {
+    "question_title": "How to check whether a file is empty or not",
+    "question_post": "\r\n                \r\nI have a text file. How can I check whether it's empty or not?\n    ",
+    "answer_post": "'\n>>> import os\n>>> os.stat(\"file\").st_size == 0\nTrue\n\n    '",
+    "code_snippets": [
+      ">>> import os\n>>> os.stat(\"file\").st_size == 0\nTrue\n"
+    ],
+    "answer_id": 2507871,
+    "response": "Specific steps: \nStep 1: The import statement is \"import os\".\nStep 2: The method name can be \"is_file_empty\".\nStep 3: The parameter is the file path, which can be named \"file_path\".\nStep 4: The return statement is \"os.stat(file_path).st_size == 0\", which checks whether the file is empty or not.\n\nComplete code: \n```python\nimport os\n\ndef is_file_empty(file_path):\n    return os.stat(file_path).st_size == 0\n```"
+  }
+]

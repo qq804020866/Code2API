@@ -1,0 +1,902 @@
+[
+  {
+    "question_title": "How can I add new keys to a dictionary?",
+    "question_post": "\r\n                \r\nHow do I add a new key to an existing dictionary? It doesn't have an .add() method.\n    ",
+    "answer_post": "\r\nYou create a new key/value pair on a dictionary by assigning a value to that key\nd = {'key': 'value'}\nprint(d)  # {'key': 'value'}\n\nd['mynewkey'] = 'mynewvalue'\n\nprint(d)  # {'key': 'value', 'mynewkey': 'mynewvalue'}\n\nIf the key doesn't exist, it's added and points to that value. If it exists, the current value it points to is overwritten.\n    ",
+    "code_snippets": [
+      "d = {'key': 'value'}\nprint(d)  # {'key': 'value'}\n\nd['mynewkey'] = 'mynewvalue'\n\nprint(d)  # {'key': 'value', 'mynewkey': 'mynewvalue'}\n"
+    ],
+    "answer_id": 1024851
+  },
+  {
+    "question_title": "How do I parse a string to a float or int?",
+    "question_post": "\r\n                \r\n\nHow can I convert a str to float?\n\"545.2222\"  \u2192  545.2222\n\n\nHow can I convert a str to int?\n\"31\"        \u2192  31\n\n\n\n\nFor the reverse, see Convert integer to string in Python and Converting a float to a string without rounding it.\nPlease instead use How can I read inputs as numbers? to close duplicate questions where OP received a string from user input and immediately wants to convert it, or was hoping for input (in 3.x) to convert the type automatically.\n    ",
+    "answer_post": "\r\n>>> a = \"545.2222\"\n>>> float(a)\n545.22220000000004\n>>> int(float(a))\n545\n\n    ",
+    "code_snippets": [
+      ">>> a = \"545.2222\"\n>>> float(a)\n545.22220000000004\n>>> int(float(a))\n545\n"
+    ],
+    "answer_id": 379910
+  },
+  {
+    "question_title": "How do I check if a list is empty?",
+    "question_post": "\r\n                    \r\n            \r\n        \r\n            \r\n                    \r\n                        \r\n                    \r\n                \r\n                    \r\n                            \r\n                                This question's answers are a community effort. Edit existing answers to improve this post. It is not currently accepting new answers or interactions.\r\n                                \r\n                            \r\n                    \r\n                \r\n            \r\n        \r\n\r\n\r\n    \r\n\r\nFor example, if passed the following:\n\na = []\n\n\nHow do I check to see if a is empty?\n    ",
+    "answer_post": "\r\nif not a:\n    print(\"List is empty\")\n\nUsing the implicit booleanness of the empty list is quite Pythonic.\n    ",
+    "code_snippets": [
+      "if not a:\n    print(\"List is empty\")\n"
+    ],
+    "answer_id": 53522
+  },
+  {
+    "question_title": "How do I get the number of elements in a list (length of a list) in Python?",
+    "question_post": "\r\n                \r\nHow do I get the number of elements in the list items?\nitems = [\"apple\", \"orange\", \"banana\"]\n\n# There are 3 items.\n\n    ",
+    "answer_post": "\r\nThe len() function can be used with several different types in Python - both built-in types and library types. For example:\n>>> len([1, 2, 3])\n3\n\n    ",
+    "code_snippets": [
+      ">>> len([1, 2, 3])\n3\n"
+    ],
+    "answer_id": 1712236
+  },
+  {
+    "question_title": "How do I get a substring of a string in Python? [duplicate]",
+    "question_post": "\r\n                    \r\n            \r\n        \r\n            \r\n                \r\n                    \r\n                            \r\n                                This question already has answers here:\r\n                                \r\n                            \r\n                    \r\n                \r\n            \r\n                    \r\n                        How slicing in Python works\r\n                            \r\n                                (38 answers)\r\n                            \r\n                    \r\n                Closed 7 months ago.\r\n        \r\n\r\n\r\n    \r\n\r\nI want to get a new string from the third character to the end of the string, e.g. myString[2:end]. If omitting the second part means 'to the end', and if you omit the first part, does it start from the start?\n    ",
+    "answer_post": "\r\n>>> x = \"Hello World!\"\n>>> x[2:]\n'llo World!'\n>>> x[:2]\n'He'\n>>> x[:-2]\n'Hello Worl'\n>>> x[-2:]\n'd!'\n>>> x[2:-2]\n'llo Worl'\n\n\nPython calls this concept \"slicing\" and it works on more than just strings. Take a look here for a comprehensive introduction.\n    ",
+    "code_snippets": [
+      ">>> x = \"Hello World!\"\n>>> x[2:]\n'llo World!'\n>>> x[:2]\n'He'\n>>> x[:-2]\n'Hello Worl'\n>>> x[-2:]\n'd!'\n>>> x[2:-2]\n'llo Worl'\n"
+    ],
+    "answer_id": 663175
+  },
+  {
+    "question_title": "How do I lowercase a string in Python?",
+    "question_post": "\r\n                \r\nIs there a way to convert a string to lowercase?\n\"Kilometers\"  \u2192  \"kilometers\"\n\n\nSee How to change a string into uppercase? for the opposite.\n    ",
+    "answer_post": "\r\nUse str.lower():\n\"Kilometer\".lower()\n\n    ",
+    "code_snippets": [
+      "\"Kilometer\".lower()\n"
+    ],
+    "answer_id": 6797990
+  },
+  {
+    "question_title": "How do I count the occurrences of a list item?",
+    "question_post": "\r\n                \r\nGiven a single item, how do I count occurrences of it in a list, in Python?\n\nA related but different problem is counting occurrences of each different element in a collection, getting a dictionary or list as a histogram result instead of a single integer. For that problem, see Using a dictionary to count the items in a list.\n    ",
+    "answer_post": "\r\nIf you only want a single item's count, use the count method:\n>>> [1, 2, 3, 4, 1, 4, 1].count(1)\n3\n\n\nImportant: this is very slow if you are counting multiple different items\nEach count call goes over the entire list of n elements. Calling count in a loop n times means n * n total checks, which can be catastrophic for performance.\nIf you want to count multiple items, use Counter, which only does n total checks.\n    ",
+    "code_snippets": [
+      ">>> [1, 2, 3, 4, 1, 4, 1].count(1)\n3\n"
+    ],
+    "answer_id": 2600208
+  },
+  {
+    "question_title": "How to check for NaN values",
+    "question_post": "\r\n                \r\nfloat('nan') represents NaN (not a number). But how do I check for it?\n    ",
+    "answer_post": "\r\nUse math.isnan:\n>>> import math\n>>> x = float('nan')\n>>> math.isnan(x)\nTrue\n\n    ",
+    "code_snippets": [
+      ">>> import math\n>>> x = float('nan')\n>>> math.isnan(x)\nTrue\n"
+    ],
+    "answer_id": 944733
+  },
+  {
+    "question_title": "How can I get a value from a cell of a dataframe?",
+    "question_post": "\r\n                \r\nI have constructed a condition that extracts exactly one row from my dataframe:\nd2 = df[(df['l_ext']==l_ext) & (df['item']==item) & (df['wn']==wn) & (df['wd']==1)]\n\nNow I would like to take a value from a particular column:\nval = d2['col_name']\n\nBut as a result, I get a dataframe that contains one row and one column (i.e., one cell). It is not what I need. I need one value (one float number). How can I do it in pandas?\n    ",
+    "answer_post": "\r\nIf you have a DataFrame with only one row, then access the first (only) row as a Series using iloc, and then the value using the column name:\nIn [3]: sub_df\nOut[3]:\n          A         B\n2 -0.133653 -0.030854\n\nIn [4]: sub_df.iloc[0]\nOut[4]:\nA   -0.133653\nB   -0.030854\nName: 2, dtype: float64\n\nIn [5]: sub_df.iloc[0]['A']\nOut[5]: -0.13365288513107493\n\n    ",
+    "code_snippets": [
+      "In [3]: sub_df\nOut[3]:\n          A         B\n2 -0.133653 -0.030854\n\nIn [4]: sub_df.iloc[0]\nOut[4]:\nA   -0.133653\nB   -0.030854\nName: 2, dtype: float64\n\nIn [5]: sub_df.iloc[0]['A']\nOut[5]: -0.13365288513107493\n"
+    ],
+    "answer_id": 16729808
+  },
+  {
+    "question_title": "How do I append to a file?",
+    "question_post": "\r\n                \r\nHow do I append to a file instead of overwriting it?\n    ",
+    "answer_post": "\r\nSet the mode in open() to \"a\" (append) instead of \"w\" (write):\nwith open(\"test.txt\", \"a\") as myfile:\n    myfile.write(\"appended text\")\n\nThe documentation lists all the available modes.\n    ",
+    "code_snippets": [
+      "with open(\"test.txt\", \"a\") as myfile:\n    myfile.write(\"appended text\")\n"
+    ],
+    "answer_id": 4706520
+  },
+  {
+    "question_title": "How to concatenate (join) items in a list to a single string",
+    "question_post": "\r\n                \r\nHow do I concatenate a list of strings into a single string?\nFor example, given ['this', 'is', 'a', 'sentence'], how do I get \"this-is-a-sentence\"?\n\nFor handling a few strings in separate variables, see How do I append one string to another in Python?.\nFor the opposite process - creating a list from a string - see How do I split a string into a list of characters? or How do I split a string into a list of words? as appropriate.\n    ",
+    "answer_post": "\r\nUse str.join:\n>>> words = ['this', 'is', 'a', 'sentence']\n>>> '-'.join(words)\n'this-is-a-sentence'\n>>> ' '.join(words)\n'this is a sentence'\n\n    ",
+    "code_snippets": [
+      ">>> words = ['this', 'is', 'a', 'sentence']\n>>> '-'.join(words)\n'this-is-a-sentence'\n>>> ' '.join(words)\n'this is a sentence'\n"
+    ],
+    "answer_id": 12453584
+  },
+  {
+    "question_title": "How do I terminate a script?",
+    "question_post": "\r\n                \r\nHow do I exit a script early, like the die() command in PHP?\n    ",
+    "answer_post": "\r\nimport sys\nsys.exit()\n\ndetails from the sys module documentation:\n\nsys.exit([arg])\nExit from Python. This is implemented by raising the\nSystemExit exception, so cleanup actions specified by finally clauses\nof try statements are honored, and it is possible to intercept the\nexit attempt at an outer level.\nThe optional argument arg can be an integer giving the exit status\n(defaulting to zero), or another type of object. If it is an integer,\nzero is considered \u201csuccessful termination\u201d and any nonzero value is\nconsidered \u201cabnormal termination\u201d by shells and the like. Most systems\nrequire it to be in the range 0-127, and produce undefined results\notherwise. Some systems have a convention for assigning specific\nmeanings to specific exit codes, but these are generally\nunderdeveloped; Unix programs generally use 2 for command line syntax\nerrors and 1 for all other kind of errors. If another type of object\nis passed, None is equivalent to passing zero, and any other object is\nprinted to stderr and results in an exit code of 1. In particular,\nsys.exit(\"some error message\") is a quick way to exit a program when\nan error occurs.\nSince exit() ultimately \u201conly\u201d raises an exception, it will only exit\nthe process when called from the main thread, and the exception is not\nintercepted.\n\nNote that this is the 'nice' way to exit.  @glyphtwistedmatrix below points out that if you want a 'hard exit', you can use os._exit(*errorcode*), though it's likely os-specific to some extent (it might not take an errorcode under windows, for example), and it definitely is less friendly since it doesn't let the interpreter do any cleanup before the process dies.  On the other hand, it does kill the entire process, including all running threads, while sys.exit() (as it says in the docs) only exits if called from the main thread, with no other threads running.\n    ",
+    "code_snippets": [
+      "import sys\nsys.exit()\n"
+    ],
+    "answer_id": 73673
+  },
+  {
+    "question_title": "How do I split a string into a list of words?",
+    "question_post": "\r\n                \r\nHow do I split a sentence and store each word in a list? e.g.\n\"these are words\"   \u27f6   [\"these\", \"are\", \"words\"]\n\n\nTo split on other delimiters, see Split a string by a delimiter in python.\nTo split into individual characters, see How do I split a string into a list of characters?.\n    ",
+    "answer_post": "\r\nGiven a string sentence, this stores each word in a list called words:\nwords = sentence.split()\n\n    ",
+    "code_snippets": [
+      "words = sentence.split()\n"
+    ],
+    "answer_id": 743823
+  },
+  {
+    "question_title": "How to drop rows of Pandas DataFrame whose value in a certain column is NaN",
+    "question_post": "\r\n                \r\nI have this DataFrame and want only the records whose EPS column is not NaN:\n\n>>> df\n                 STK_ID  EPS  cash\nSTK_ID RPT_Date                   \n601166 20111231  601166  NaN   NaN\n600036 20111231  600036  NaN    12\n600016 20111231  600016  4.3   NaN\n601009 20111231  601009  NaN   NaN\n601939 20111231  601939  2.5   NaN\n000001 20111231  000001  NaN   NaN\n\n\n...i.e. something like df.drop(....) to get this resulting dataframe:\n\n                  STK_ID  EPS  cash\nSTK_ID RPT_Date                   \n600016 20111231  600016  4.3   NaN\n601939 20111231  601939  2.5   NaN\n\n\nHow do I do that?\n    ",
+    "answer_post": "\r\nDon't drop, just take the rows where EPS is not NA:\n\ndf = df[df['EPS'].notna()]\n\n    ",
+    "code_snippets": [
+      "df = df[df['EPS'].notna()]\n"
+    ],
+    "answer_id": 13413845
+  },
+  {
+    "question_title": "How to round to 2 decimals with Python? [duplicate]",
+    "question_post": "\n                    \n            \n        \n            \n                \n                    \n                            \n                                This question already has answers here:\n                                \n                            \n                    \n                \n            \n                    \n                        Limiting floats to two decimal points\n                            \n                                (36 answers)\n                            \n                    \n                Closed 11 months ago.\n        \n\n\n    \n\nI am getting a lot of decimals in the output of this code (Fahrenheit to Celsius converter).\n\nMy code currently looks like this:\n\ndef main():\n    printC(formeln(typeHere()))\n\ndef typeHere():\n    global Fahrenheit\n    try:\n        Fahrenheit = int(raw_input(\"Hi! Enter Fahrenheit value, and get it in Celsius!\\n\"))\n    except ValueError:\n        print \"\\nYour insertion was not a digit!\"\n        print \"We've put your Fahrenheit value to 50!\"\n        Fahrenheit = 50\n    return Fahrenheit\n\ndef formeln(c):\n    Celsius = (Fahrenheit - 32.00) * 5.00/9.00\n    return Celsius\n\ndef printC(answer):\n    answer = str(answer)\n    print \"\\nYour Celsius value is \" + answer + \" C.\\n\"\n\n\n\nmain()\n\n\nSo my question is, how do I make the program round every answer to the 2nd decimal place?\n    ",
+    "answer_post": "\r\nYou can use the round function, which takes as its first argument the number and the second argument is the precision after the decimal point.\n\nIn your case, it would be:\n\nanswer = str(round(answer, 2))\n\n    ",
+    "code_snippets": [
+      "answer = str(round(answer, 2))\n"
+    ],
+    "answer_id": 20457115
+  },
+  {
+    "question_title": "How do I move a file in Python?",
+    "question_post": "\r\n                \r\nHow can I do the equivalent of mv in Python?\nmv \"path/to/current/file.foo\" \"path/to/new/destination/for/file.foo\"\n\n    ",
+    "answer_post": "\r\nos.rename(), os.replace(), or shutil.move()\nAll employ the same syntax:\nimport os\nimport shutil\n\nos.rename(\"path/to/current/file.foo\", \"path/to/new/destination/for/file.foo\")\nos.replace(\"path/to/current/file.foo\", \"path/to/new/destination/for/file.foo\")\nshutil.move(\"path/to/current/file.foo\", \"path/to/new/destination/for/file.foo\")\n\n\nThe filename (\"file.foo\") must be included in both the source and destination arguments. If it differs between the two, the file will be renamed as well as moved.\nThe directory within which the new file is being created must already exist.\nOn Windows, a file with that name must not exist or an exception will be raised, but os.replace() will silently replace a file even in that occurrence.\nshutil.move simply calls os.rename in most cases. However, if the destination is on a different disk than the source, it will instead copy and then delete the source file.\n\n    ",
+    "code_snippets": [
+      "import os\nimport shutil\n\nos.rename(\"path/to/current/file.foo\", \"path/to/new/destination/for/file.foo\")\nos.replace(\"path/to/current/file.foo\", \"path/to/new/destination/for/file.foo\")\nshutil.move(\"path/to/current/file.foo\", \"path/to/new/destination/for/file.foo\")\n"
+    ],
+    "answer_id": 8858026
+  },
+  {
+    "question_title": "How to extract numbers from a string in Python?",
+    "question_post": "\r\n                \r\nI would like to extract all the numbers contained in a string. Which is better suited for the purpose, regular expressions or the isdigit() method?\nExample:\nline = \"hello 12 hi 89\"\n\nResult:\n[12, 89]\n\n    ",
+    "answer_post": "\nIf you only want to extract only positive integers, try the following:\n>>> txt = \"h3110 23 cat 444.4 rabbit 11 2 dog\"\n>>> [int(s) for s in txt.split() if s.isdigit()]\n[23, 11, 2]\n\nI would argue that this is better than the regex example because you don't need another module and it's more readable because you don't need to parse (and learn) the regex mini-language.\nThis will not recognize floats, negative integers, or integers in hexadecimal format.  If you can't accept these limitations, jmnas's answer below will do the trick.\n    ",
+    "code_snippets": [
+      ">>> txt = \"h3110 23 cat 444.4 rabbit 11 2 dog\"\n>>> [int(s) for s in txt.split() if s.isdigit()]\n[23, 11, 2]\n"
+    ],
+    "answer_id": 4289557
+  },
+  {
+    "question_title": "How do I reverse a string in Python?",
+    "question_post": "\r\n                \r\nThere is no built in reverse function for Python's str object. What is the best way of implementing this method?\n\nIf supplying a very concise answer, please elaborate on its efficiency. For example, whether the str object is converted to a different object, etc. \n    ",
+    "answer_post": "\r\nUsing slicing:\n>>> 'hello world'[::-1]\n'dlrow olleh'\n\n\nSlice notation takes the form [start:stop:step]. In this case, we omit the start and stop positions since we want the whole string. We also use step = -1, which means, \"repeatedly step from right to left by 1 character\".\n    ",
+    "code_snippets": [
+      ">>> 'hello world'[::-1]\n'dlrow olleh'\n"
+    ],
+    "answer_id": 931095
+  },
+  {
+    "question_title": "How can I get list of values from dict?",
+    "question_post": "\r\n                \r\nHow can I get a list of the values in a dict in Python?\n\nIn Java, getting the values of a Map as a List is as easy as doing list = map.values();.  I'm wondering if there is a similarly simple way in Python to get a list of values from a dict.\n    ",
+    "answer_post": "\r\ndict.values returns a view of the dictionary's values, so you have to wrap it in list:\nlist(d.values())\n\n    ",
+    "code_snippets": [
+      "list(d.values())\n"
+    ],
+    "answer_id": 16228268
+  },
+  {
+    "question_title": "How do I create an empty array and then append to it in NumPy?",
+    "question_post": "\r\n                \r\nI want to create an empty array and append items to it, one  at a time.\nxs = []\nfor item in data:\n    xs.append(item)\n\nCan I use this list-style notation with NumPy arrays?\n    ",
+    "answer_post": "\r\nThat is the wrong mental model for using NumPy efficiently. NumPy arrays are stored in contiguous blocks of memory. To append rows or columns to an existing array, the entire array needs to be copied to a new block of memory, creating gaps for the new elements to be stored. This is very inefficient if done repeatedly.\nInstead of appending rows, allocate a suitably sized array, and then assign to it row-by-row:\n>>> import numpy as np\n\n>>> a = np.zeros(shape=(3, 2))\n>>> a\narray([[ 0.,  0.],\n       [ 0.,  0.],\n       [ 0.,  0.]])\n\n>>> a[0] = [1, 2]\n>>> a[1] = [3, 4]\n>>> a[2] = [5, 6]\n\n>>> a\narray([[ 1.,  2.],\n       [ 3.,  4.],\n       [ 5.,  6.]])\n\n    ",
+    "code_snippets": [
+      ">>> import numpy as np\n\n>>> a = np.zeros(shape=(3, 2))\n>>> a\narray([[ 0.,  0.],\n       [ 0.,  0.],\n       [ 0.,  0.]])\n\n>>> a[0] = [1, 2]\n>>> a[1] = [3, 4]\n>>> a[2] = [5, 6]\n\n>>> a\narray([[ 1.,  2.],\n       [ 3.,  4.],\n       [ 5.,  6.]])\n"
+    ],
+    "answer_id": 569063
+  },
+  {
+    "question_title": "How to check if an object has an attribute?",
+    "question_post": "\r\n                \r\nHow do I check if an object has some attribute? For example:\n>>> a = SomeClass()\n>>> a.property\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nAttributeError: SomeClass instance has no attribute 'property'\n\nHow do I tell if a has the attribute property before using it?\n    ",
+    "answer_post": "\r\nTry hasattr():\nif hasattr(a, 'property'):\n    a.property\n\nSee zweiterlinde's answer below, who offers good advice about asking forgiveness! A very pythonic approach!\nThe general practice in python is that, if the property is likely to be there most of the time, simply call it and either let the exception propagate, or trap it with a try/except block. This will likely be faster than hasattr. If the property is likely to not be there most of the time, or you're not sure, using hasattr will probably be faster than repeatedly falling into an exception block.\n    ",
+    "code_snippets": [
+      "if hasattr(a, 'property'):\n    a.property\n"
+    ],
+    "answer_id": 610893
+  },
+  {
+    "question_title": "How can the Euclidean distance be calculated with NumPy?",
+    "question_post": "\r\n                \r\nI have two points in 3D space:\na = (ax, ay, az)\nb = (bx, by, bz)\n\nI want to calculate the distance between them:\ndist = sqrt((ax-bx)^2 + (ay-by)^2 + (az-bz)^2)\n\nHow do I do this with NumPy? I have:\nimport numpy\na = numpy.array((ax, ay, az))\nb = numpy.array((bx, by, bz))\n\n    ",
+    "answer_post": "\r\nUse numpy.linalg.norm:\ndist = numpy.linalg.norm(a-b)\n\nThis works because the Euclidean distance is the l2 norm, and the default value of the ord parameter in numpy.linalg.norm is 2.\nFor more theory, see Introduction to Data Mining:\n\n    ",
+    "code_snippets": [
+      "dist = numpy.linalg.norm(a-b)\n"
+    ],
+    "answer_id": 1401828
+  },
+  {
+    "question_title": "How to change a string into uppercase?",
+    "question_post": "\r\n                \r\nHow can I convert a string into uppercase in Python?\nWhen I tried to research the problem, I found something about string.ascii_uppercase, but it couldn't solve the problem:\n>>> s = 'sdsd'\n>>> s.ascii_uppercase\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nAttributeError: 'str' object has no attribute 'ascii_uppercase'\n\n\nSee How do I lowercase a string in Python? for the opposite.\n    ",
+    "answer_post": "\r\nUse str.upper():\n>>> s = 'sdsd'\n>>> s.upper()\n'SDSD'\n\nSee String Methods.\n    ",
+    "code_snippets": [
+      ">>> s = 'sdsd'\n>>> s.upper()\n'SDSD'\n"
+    ],
+    "answer_id": 9257122
+  },
+  {
+    "question_title": "How do I get the day of week given a date?",
+    "question_post": "\r\n                \r\nI want to find out the following:\ngiven a date (datetime object), what is the corresponding day of the week?\n\nFor instance, Sunday is the first day, Monday: second day.. and so on\n\nAnd then if the input is something like today's date.\n\nExample\n\n>>> today = datetime.datetime(2017, 10, 20)\n>>> today.get_weekday()  # what I look for\n\n\nThe output is maybe 6 (since it's Friday)\n    ",
+    "answer_post": "\r\nUse weekday():\n>>> import datetime\n>>> datetime.datetime.today()\ndatetime.datetime(2012, 3, 23, 23, 24, 55, 173504)\n>>> datetime.datetime.today().weekday()\n4\n\nFrom the documentation:\n\nReturn the day of the week as an integer, where Monday is 0 and Sunday is 6.\n\n    ",
+    "code_snippets": [
+      ">>> import datetime\n>>> datetime.datetime.today()\ndatetime.datetime(2012, 3, 23, 23, 24, 55, 173504)\n>>> datetime.datetime.today().weekday()\n4\n"
+    ],
+    "answer_id": 9847269
+  },
+  {
+    "question_title": "How can I make a dictionary (dict) from separate lists of keys and values?",
+    "question_post": "\r\n                \r\nI want to combine these:\nkeys = ['name', 'age', 'food']\nvalues = ['Monty', 42, 'spam']\n\nInto a single dictionary:\n{'name': 'Monty', 'age': 42, 'food': 'spam'}\n\n    ",
+    "answer_post": "\r\nLike this:\nkeys = ['a', 'b', 'c']\nvalues = [1, 2, 3]\ndictionary = dict(zip(keys, values))\nprint(dictionary) # {'a': 1, 'b': 2, 'c': 3}\n\nVoila :-)  The pairwise dict constructor and zip function are awesomely useful.\n    ",
+    "code_snippets": [
+      "keys = ['a', 'b', 'c']\nvalues = [1, 2, 3]\ndictionary = dict(zip(keys, values))\nprint(dictionary) # {'a': 1, 'b': 2, 'c': 3}\n"
+    ],
+    "answer_id": 209854
+  },
+  {
+    "question_title": "How can I parse a YAML file in Python",
+    "question_post": "\r\n                \r\nHow can I parse a YAML file in Python?\n    ",
+    "answer_post": "\r\nThe easiest and purest method without relying on C headers is PyYaml (documentation), which can be installed via pip install pyyaml:\n#!/usr/bin/env python\n\nimport yaml\n\nwith open(\"example.yaml\", \"r\") as stream:\n    try:\n        print(yaml.safe_load(stream))\n    except yaml.YAMLError as exc:\n        print(exc)\n\nAnd that's it. A plain yaml.load() function also exists, but yaml.safe_load() should always be preferred to avoid introducing the possibility for arbitrary code execution. So unless you explicitly need the arbitrary object serialization/deserialization use safe_load.\nNote the PyYaml project supports versions up through the YAML 1.1 specification. If YAML 1.2 specification support is needed, see ruamel.yaml as noted in this answer.\nAlso, you could also use a drop in replacement for pyyaml, that keeps your yaml file ordered the same way you had it, called oyaml. View synk of oyaml here\n    ",
+    "code_snippets": [
+      "#!/usr/bin/env python\n\nimport yaml\n\nwith open(\"example.yaml\", \"r\") as stream:\n    try:\n        print(yaml.safe_load(stream))\n    except yaml.YAMLError as exc:\n        print(exc)\n"
+    ],
+    "answer_id": 1774043
+  },
+  {
+    "question_title": "How do I convert a datetime to date?",
+    "question_post": "\r\n                \r\nHow do I convert a datetime.datetime object (e.g., the return value of datetime.datetime.now()) to a datetime.date object in Python?\n    ",
+    "answer_post": "\r\nUse the date() method:\ndatetime.datetime.now().date()\n\n    ",
+    "code_snippets": [
+      "datetime.datetime.now().date()\n"
+    ],
+    "answer_id": 3743240
+  },
+  {
+    "question_title": "How do you get the logical xor of two variables in Python?",
+    "question_post": "\r\n                \r\nHow do you get the logical xor of two variables in Python?\nFor example, I have two variables that I expect to be strings. I want to test that only one of them contains a True value (is not None or an empty string):\nstr1 = raw_input(\"Enter string one:\")\nstr2 = raw_input(\"Enter string two:\")\nif logical_xor(str1, str2):\n    print \"ok\"\nelse:\n    print \"bad\"\n\nThe ^ operator is bitwise, and not defined on all objects:\n>>> 1 ^ 1\n0\n>>> 2 ^ 1\n3\n>>> \"abc\" ^ \"\"\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nTypeError: unsupported operand type(s) for ^: 'str' and 'str'\n\n    ",
+    "answer_post": "\r\nIf you're already normalizing the inputs to booleans, then != is xor.\nbool(a) != bool(b)\n\n    ",
+    "code_snippets": [
+      "bool(a) != bool(b)\n"
+    ],
+    "answer_id": 433161
+  },
+  {
+    "question_title": "How do I read CSV data into a record array in NumPy?",
+    "question_post": "\r\n                \r\nIs there a direct way to import the contents of a CSV file into a record array, just like how R's read.table(), read.delim(), and read.csv() import data into R dataframes?\nOr should I use csv.reader() and then apply numpy.core.records.fromrecords()?\n    ",
+    "answer_post": "\r\nUse numpy.genfromtxt() by setting the delimiter kwarg to a comma:\nfrom numpy import genfromtxt\nmy_data = genfromtxt('my_file.csv', delimiter=',')\n\n    ",
+    "code_snippets": [
+      "from numpy import genfromtxt\nmy_data = genfromtxt('my_file.csv', delimiter=',')\n"
+    ],
+    "answer_id": 3519314
+  },
+  {
+    "question_title": "Creating a Pandas DataFrame from a Numpy array: How do I specify the index column and column headers?",
+    "question_post": "\r\n                \r\nI have a Numpy array consisting of a list of lists, representing a two-dimensional array with row labels and column names as shown below:\ndata = np.array([['','Col1','Col2'],['Row1',1,2],['Row2',3,4]])\n\nI'd like the resulting DataFrame to have Row1 and Row2 as index values, and Col1, Col2 as header values.\nI can specify the index as follows:\ndf = pd.DataFrame(data, index=data[:,0])\n\nHowever, I am unsure how to best assign column headers.\n    ",
+    "answer_post": "\r\nSpecify data, index and columns to the DataFrame constructor, as follows:\n>>> pd.DataFrame(data=data[1:,1:],    # values\n...              index=data[1:,0],    # 1st column as index\n...              columns=data[0,1:])  # 1st row as the column names\n\nAs @joris mentions, you may need to change above to np.int_(data[1:,1:]) to have the correct data type.\n    ",
+    "code_snippets": [
+      ">>> pd.DataFrame(data=data[1:,1:],    # values\n...              index=data[1:,0],    # 1st column as index\n...              columns=data[0,1:])  # 1st row as the column names\n"
+    ],
+    "answer_id": 20763459
+  },
+  {
+    "question_title": "How do I put a variable\u2019s value inside a string (interpolate it into the string)?",
+    "question_post": "\r\n                \r\nI would like to put an int into a string. This is what I am doing at the moment:\nnum = 40\nplot.savefig('hanning40.pdf') #problem line\n\nI have to run the program for several different numbers, so I'd like to do a loop. But inserting the variable like this doesn't work:\nplot.savefig('hanning', num, '.pdf')\n\nHow do I insert a variable into a Python string?\n\nSee also\nIf you are trying to create a file path, see How can I create a full path to a file from parts (e.g. path to the folder, name and extension)? for additional techniques. It will usually be better to use code that is specific to creating paths.\nIf you are trying to assemble a URL with variable data, do not use ordinary string formatting, because it is error-prone and more difficult than necessary. Specialized tools are available. See Add params to given URL in Python.\nIf you are trying to assemble a SQL query, do not use ordinary string formatting, because it is a major security risk. This is the cause of \"SQL injection\" which costs real companies huge amounts of money every year. See for example How to use variables in SQL statement in Python? for proper techniques.\nIf you just want to print (output) the string, you can prepare it this way first, or if you don't need the string for anything else, print each piece of the output individually using a single call to print. See How can I print multiple things (fixed text and/or variable values) on the same line, all at once? for details on both approaches.\n    ",
+    "answer_post": "\r\nplot.savefig('hanning(%d).pdf' % num)\n\nThe % operator, when following a string, allows you to insert values into that string via format codes (the %d in this case). For more details, see the Python documentation:\nprintf-style String Formatting\n    ",
+    "code_snippets": [
+      "plot.savefig('hanning(%d).pdf' % num)\n"
+    ],
+    "answer_id": 2960791
+  },
+  {
+    "question_title": "How to subtract a day from a date?",
+    "question_post": "\r\n                \r\nI have a Python datetime.datetime object. What is the best way to subtract one day?\n    ",
+    "answer_post": "\r\nYou can use a timedelta object:\nfrom datetime import datetime, timedelta\n    \nd = datetime.today() - timedelta(days=days_to_subtract)\n\n    ",
+    "code_snippets": [
+      "from datetime import datetime, timedelta\n    \nd = datetime.today() - timedelta(days=days_to_subtract)\n"
+    ],
+    "answer_id": 441152
+  },
+  {
+    "question_title": "how to sort pandas dataframe from one column",
+    "question_post": "\r\n                \r\nI have a data frame like this: \n\nprint(df)\n\n        0          1     2\n0   354.7      April   4.0\n1    55.4     August   8.0\n2   176.5   December  12.0\n3    95.5   February   2.0\n4    85.6    January   1.0\n5     152       July   7.0\n6   238.7       June   6.0\n7   104.8      March   3.0\n8   283.5        May   5.0\n9   278.8   November  11.0\n10  249.6    October  10.0\n11  212.7  September   9.0\n\n\nAs you can see, months are not in calendar order. So I created a second column to get the month number corresponding to each month (1-12). From there, how can I sort this data frame according to  calendar months' order?\n    ",
+    "answer_post": "\r\nUse sort_values to sort the df by a specific column's values:\n\nIn [18]:\ndf.sort_values('2')\n\nOut[18]:\n        0          1     2\n4    85.6    January   1.0\n3    95.5   February   2.0\n7   104.8      March   3.0\n0   354.7      April   4.0\n8   283.5        May   5.0\n6   238.7       June   6.0\n5   152.0       July   7.0\n1    55.4     August   8.0\n11  212.7  September   9.0\n10  249.6    October  10.0\n9   278.8   November  11.0\n2   176.5   December  12.0\n\n\nIf you want to sort by two columns, pass a list of column labels to sort_values with the column labels ordered according to sort priority.  If you use df.sort_values(['2', '0']), the result would be sorted by column 2 then column 0. Granted, this does not really make sense for this example because each value in df['2'] is unique.\n    ",
+    "code_snippets": [
+      "In [18]:\ndf.sort_values('2')\n\nOut[18]:\n        0          1     2\n4    85.6    January   1.0\n3    95.5   February   2.0\n7   104.8      March   3.0\n0   354.7      April   4.0\n8   283.5        May   5.0\n6   238.7       June   6.0\n5   152.0       July   7.0\n1    55.4     August   8.0\n11  212.7  September   9.0\n10  249.6    October  10.0\n9   278.8   November  11.0\n2   176.5   December  12.0\n"
+    ],
+    "answer_id": 37787724
+  },
+  {
+    "question_title": "How do I convert all of the items in a list to floats? [duplicate]",
+    "question_post": "\r\n                    \r\n            \r\n        \r\n            \r\n                \r\n                    \r\n                            \r\n                                This question already has answers here:\r\n                                \r\n                            \r\n                    \r\n                \r\n            \r\n                    \r\n                        How can I collect the results of a repeated calculation in a list, dictionary etc. (or make a copy of a list with each element modified)?\r\n                            \r\n                                (3 answers)\r\n                            \r\n                    \r\n                Closed 3 months ago.\r\n        \r\n\r\n\r\n    \r\n\r\nI have a script which reads a text file, pulls decimal numbers out of it as strings and places them into a list.\nSo I have this list:\nmy_list = ['0.49', '0.54', '0.54', '0.55', '0.55', '0.54', '0.55', '0.55', '0.54']\n\nHow do I convert each of the values in the list from a string to a float?\nI have tried:\nfor item in my_list:\n    float(item)\n\nBut this doesn't seem to work for me.\n    ",
+    "answer_post": "\r\n[float(i) for i in lst]\n\n\nto be precise, it creates a new list with float values. Unlike the map approach it will work in py3k.\n    ",
+    "code_snippets": [
+      "[float(i) for i in lst]\n"
+    ],
+    "answer_id": 1614247
+  },
+  {
+    "question_title": "How do I print the full NumPy array, without truncation?",
+    "question_post": "\r\n                \r\nWhen I print a numpy array, I get a truncated representation, but I want the full array.\n>>> numpy.arange(10000)\narray([   0,    1,    2, ..., 9997, 9998, 9999])\n\n>>> numpy.arange(10000).reshape(250,40)\narray([[   0,    1,    2, ...,   37,   38,   39],\n       [  40,   41,   42, ...,   77,   78,   79],\n       [  80,   81,   82, ...,  117,  118,  119],\n       ..., \n       [9880, 9881, 9882, ..., 9917, 9918, 9919],\n       [9920, 9921, 9922, ..., 9957, 9958, 9959],\n       [9960, 9961, 9962, ..., 9997, 9998, 9999]])\n\n    ",
+    "answer_post": "\r\nUse numpy.set_printoptions:\nimport sys\nimport numpy\nnumpy.set_printoptions(threshold=sys.maxsize)\n\n    ",
+    "code_snippets": [
+      "import sys\nimport numpy\nnumpy.set_printoptions(threshold=sys.maxsize)\n"
+    ],
+    "answer_id": 1988024
+  },
+  {
+    "question_title": "How to set the current working directory? [duplicate]",
+    "question_post": "\r\n                    \r\n            \r\n        \r\n            \r\n                \r\n                    \r\n                            \r\n                                This question already has answers here:\r\n                                \r\n                            \r\n                    \r\n                \r\n            \r\n                    \r\n                        Equivalent of shell 'cd' command to change the working directory?\r\n                            \r\n                                (15 answers)\r\n                            \r\n                    \r\n                Closed 4 years ago.\r\n        \r\n\r\n\r\n    \r\n\r\nHow to set the current working directory in Python?\n    ",
+    "answer_post": "\r\nTry os.chdir\n\nimport os\nos.chdir(path)\n\n\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0Change the current working directory to path. Availability: Unix, Windows.\n\n    ",
+    "code_snippets": [
+      "import os\nos.chdir(path)\n"
+    ],
+    "answer_id": 1810760
+  },
+  {
+    "question_title": "How to calculate number of days between two given dates",
+    "question_post": "\r\n                \r\nIf I have two dates (ex. '8/18/2008' and '9/26/2008'), what is the best way to get the number of days between these two dates?\n    ",
+    "answer_post": "\r\nIf you have two date objects, you can just subtract them, which computes a timedelta object.\n\nfrom datetime import date\n\nd0 = date(2008, 8, 18)\nd1 = date(2008, 9, 26)\ndelta = d1 - d0\nprint(delta.days)\n\n\nThe relevant section of the docs:\nhttps://docs.python.org/library/datetime.html.\n\nSee this answer for another example.\n    ",
+    "code_snippets": [
+      "from datetime import date\n\nd0 = date(2008, 8, 18)\nd1 = date(2008, 9, 26)\ndelta = d1 - d0\nprint(delta.days)\n"
+    ],
+    "answer_id": 151211
+  },
+  {
+    "question_title": "How to add an empty column to a dataframe?",
+    "question_post": "\r\n                \r\nWhat's the easiest way to add an empty column to a pandas DataFrame object?  The best I've stumbled upon is something like\n\ndf['foo'] = df.apply(lambda _: '', axis=1)\n\n\nIs there a less perverse method?\n    ",
+    "answer_post": "\r\nIf I understand correctly, assignment should fill:\n\n>>> import numpy as np\n>>> import pandas as pd\n>>> df = pd.DataFrame({\"A\": [1,2,3], \"B\": [2,3,4]})\n>>> df\n   A  B\n0  1  2\n1  2  3\n2  3  4\n>>> df[\"C\"] = \"\"\n>>> df[\"D\"] = np.nan\n>>> df\n   A  B C   D\n0  1  2   NaN\n1  2  3   NaN\n2  3  4   NaN\n\n    ",
+    "code_snippets": [
+      ">>> import numpy as np\n>>> import pandas as pd\n>>> df = pd.DataFrame({\"A\": [1,2,3], \"B\": [2,3,4]})\n>>> df\n   A  B\n0  1  2\n1  2  3\n2  3  4\n>>> df[\"C\"] = \"\"\n>>> df[\"D\"] = np.nan\n>>> df\n   A  B C   D\n0  1  2   NaN\n1  2  3   NaN\n2  3  4   NaN\n"
+    ],
+    "answer_id": 16327135
+  },
+  {
+    "question_title": "How do I find out my PYTHONPATH using Python?",
+    "question_post": "\r\n                \r\nHow do I find out which directories are listed in my system\u2019s PYTHONPATH variable, from within a Python script (or the interactive shell)?\n    ",
+    "answer_post": "\r\nsys.path might include items that aren't specifically in your PYTHONPATH environment variable. To query the variable directly, use:\n\nimport os\ntry:\n    user_paths = os.environ['PYTHONPATH'].split(os.pathsep)\nexcept KeyError:\n    user_paths = []\n\n    ",
+    "code_snippets": [
+      "import os\ntry:\n    user_paths = os.environ['PYTHONPATH'].split(os.pathsep)\nexcept KeyError:\n    user_paths = []\n"
+    ],
+    "answer_id": 1489625
+  },
+  {
+    "question_title": "How to get/set a pandas index column title or name?",
+    "question_post": "\r\n                \r\nHow do I get the index column name in Python's pandas? Here's an example dataframe:\n             Column 1\nIndex Title          \nApples              1\nOranges             2\nPuppies             3\nDucks               4  \n\nWhat I'm trying to do is get/set the dataframe's index title. Here is what I tried:\nimport pandas as pd\n\ndata = {'Column 1'   : [1., 2., 3., 4.], \n        'Index Title': [\"Apples\", \"Oranges\", \"Puppies\", \"Ducks\"]}\ndf = pd.DataFrame(data)\ndf.index = df[\"Index Title\"]\ndel df[\"Index Title\"]\n\nAnyone know how to do this?\n    ",
+    "answer_post": "\r\nYou can just get/set the index via its name property\n\nIn [7]: df.index.name\nOut[7]: 'Index Title'\n\nIn [8]: df.index.name = 'foo'\n\nIn [9]: df.index.name\nOut[9]: 'foo'\n\nIn [10]: df\nOut[10]: \n         Column 1\nfoo              \nApples          1\nOranges         2\nPuppies         3\nDucks           4\n\n    ",
+    "code_snippets": [
+      "In [7]: df.index.name\nOut[7]: 'Index Title'\n\nIn [8]: df.index.name = 'foo'\n\nIn [9]: df.index.name\nOut[9]: 'foo'\n\nIn [10]: df\nOut[10]: \n         Column 1\nfoo              \nApples          1\nOranges         2\nPuppies         3\nDucks           4\n"
+    ],
+    "answer_id": 18023468
+  },
+  {
+    "question_title": "How to crop an image in OpenCV using Python",
+    "question_post": "\r\n                \r\nHow can I crop images, like I've done before in PIL, using OpenCV. \n\nWorking example on PIL\n\nim = Image.open('0.png').convert('L')\nim = im.crop((1, 1, 98, 33))\nim.save('_0.png')\n\n\nBut how I can do it on OpenCV? \n\nThis is what I tried:\n\nim = cv.imread('0.png', cv.CV_LOAD_IMAGE_GRAYSCALE)\n(thresh, im_bw) = cv.threshold(im, 128, 255, cv.THRESH_OTSU)\nim = cv.getRectSubPix(im_bw, (98, 33), (1, 1))\ncv.imshow('Img', im)\ncv.waitKey(0)\n\n\nBut it doesn't work.\n\nI think I incorrectly used getRectSubPix. If this is the case, please explain how I can correctly use this function.\n    ",
+    "answer_post": "\r\nIt's very simple. Use numpy slicing.\n\nimport cv2\nimg = cv2.imread(\"lenna.png\")\ncrop_img = img[y:y+h, x:x+w]\ncv2.imshow(\"cropped\", crop_img)\ncv2.waitKey(0)\n\n    ",
+    "code_snippets": [
+      "import cv2\nimg = cv2.imread(\"lenna.png\")\ncrop_img = img[y:y+h, x:x+w]\ncv2.imshow(\"cropped\", crop_img)\ncv2.waitKey(0)\n"
+    ],
+    "answer_id": 15589825
+  },
+  {
+    "question_title": "How do I find the time difference between two datetime objects in python?",
+    "question_post": "\n                \nHow do I tell the time difference in minutes between two datetime objects?\n    ",
+    "answer_post": "\r\n>>> import datetime\n>>> first_time = datetime.datetime.now()\n>>> later_time = datetime.datetime.now()\n>>> difference = later_time - first_time\ndatetime.timedelta(0, 8, 562000)\n>>> seconds_in_day = 24 * 60 * 60\n>>> divmod(difference.days * seconds_in_day + difference.seconds, 60)\n(0, 8)      # 0 minutes, 8 seconds\n\nSubtracting the later time from the first time difference = later_time - first_time creates a datetime object that only holds the difference.\nIn the example above it is 0 minutes, 8 seconds and 562000 microseconds.\n    ",
+    "code_snippets": [
+      ">>> import datetime\n>>> first_time = datetime.datetime.now()\n>>> later_time = datetime.datetime.now()\n>>> difference = later_time - first_time\ndatetime.timedelta(0, 8, 562000)\n>>> seconds_in_day = 24 * 60 * 60\n>>> divmod(difference.days * seconds_in_day + difference.seconds, 60)\n(0, 8)      # 0 minutes, 8 seconds\n"
+    ],
+    "answer_id": 1345852
+  },
+  {
+    "question_title": "How to delete the contents of a folder?",
+    "question_post": "\r\n                \r\nHow can I delete the contents of a local folder in Python?\n\nThe current project is for Windows, but I would like to see *nix also.\n    ",
+    "answer_post": "\r\nimport os, shutil\nfolder = '/path/to/folder'\nfor filename in os.listdir(folder):\n    file_path = os.path.join(folder, filename)\n    try:\n        if os.path.isfile(file_path) or os.path.islink(file_path):\n            os.unlink(file_path)\n        elif os.path.isdir(file_path):\n            shutil.rmtree(file_path)\n    except Exception as e:\n        print('Failed to delete %s. Reason: %s' % (file_path, e))\n\n    ",
+    "code_snippets": [
+      "import os, shutil\nfolder = '/path/to/folder'\nfor filename in os.listdir(folder):\n    file_path = os.path.join(folder, filename)\n    try:\n        if os.path.isfile(file_path) or os.path.islink(file_path):\n            os.unlink(file_path)\n        elif os.path.isdir(file_path):\n            shutil.rmtree(file_path)\n    except Exception as e:\n        print('Failed to delete %s. Reason: %s' % (file_path, e))\n"
+    ],
+    "answer_id": 185941
+  },
+  {
+    "question_title": "How to \"test\" NoneType in python?",
+    "question_post": "\r\n                \r\nI have a method that sometimes returns a NoneType value. So how can I question a variable that is a NoneType? I need to use if method, for example\n\nif not new:\n    new = '#'\n\n\nI know that is the wrong way and I hope you understand what I meant.\n    ",
+    "answer_post": "\r\n\n  So how can I question a variable that is a NoneType?\n\n\nUse is operator, like this\n\nif variable is None:\n\n\nWhy this works?\n\nSince None is the sole singleton object of NoneType in Python, we can use is operator to check if a variable has None in it or not.\n\nQuoting from is docs,\n\n\n  The operators is and is not test for object identity: x is y is true if and only if x and y are the same object. x is not y yields the inverse truth value.\n\n\nSince there can be only one instance of None, is would be the preferred way to check None.\n\n\n\nHear it from the horse's mouth\n\nQuoting Python's Coding Style Guidelines - PEP-008 (jointly defined by Guido himself),\n\n\n  Comparisons to singletons like None should always be done with is or is not, never the equality operators.\n\n    ",
+    "code_snippets": [
+      "if variable is None:\n"
+    ],
+    "answer_id": 23086405
+  },
+  {
+    "question_title": "How can I get dictionary key as variable directly in Python (not by searching from value)?",
+    "question_post": "\n                \nSorry for this basic question but my searches on this are not turning up anything other than how to get a dictionary's key based on its value which I would prefer not to use as I simply want the text/name of the key and am worried that searching by value may end up returning 2 or more keys if the dictionary has a lot of entries... what I am trying to do is this:\n\nmydictionary={'keyname':'somevalue'}\nfor current in mydictionary:\n\n   result = mydictionary.(some_function_to_get_key_name)[current]\n   print result\n   \"keyname\"\n\n\nThe reason for this is that I am printing these out to a document and I want to use the key name and the value in doing this\n\nI have seen the method below but this seems to just return the key's value\n\nget(key[, default])\n\n    ",
+    "answer_post": "\r\nYou should iterate over keys with:\n\nfor key in mydictionary:\n   print \"key: %s , value: %s\" % (key, mydictionary[key])\n\n    ",
+    "code_snippets": [
+      "for key in mydictionary:\n   print \"key: %s , value: %s\" % (key, mydictionary[key])\n"
+    ],
+    "answer_id": 3545353
+  },
+  {
+    "question_title": "How to remove axis, legends, and white padding",
+    "question_post": "\r\n                \r\nI would like to apply colormap to an image, and write the resulting image, without using axes, labels, titles, or anything automatically added by matplotlib. Here is what I did:\ndef make_image(inputname,outputname):\n    data = mpimg.imread(inputname)[:,:,0]\n    fig = plt.imshow(data)\n    fig.set_cmap('hot')\n    fig.axes.get_xaxis().set_visible(False)\n    fig.axes.get_yaxis().set_visible(False)\n    plt.savefig(outputname)\n\nIt successfully removes the axis of the figure, but the figure saved, presents a white padding, and a frame around the actual image.\nHow can I remove them (at least the white padding)?\n    ",
+    "answer_post": "\r\nThe axis('off') method resolves one of the problems more succinctly than separately changing each axis and border. It still leaves the white space around the border however. Adding bbox_inches='tight' to the savefig command almost gets you there; you can see in the example below that the white space left is much smaller, but still present.\nNewer versions of matplotlib may require bbox_inches=0 instead of the string 'tight' (via @episodeyang and @kadrach)\nfrom numpy import random\nimport matplotlib.pyplot as plt\n\ndata = random.random((5,5))\nimg = plt.imshow(data, interpolation='nearest')\nimg.set_cmap('hot')\nplt.axis('off')\nplt.savefig(\"test.png\", bbox_inches='tight')\n\n\n    ",
+    "code_snippets": [
+      "from numpy import random\nimport matplotlib.pyplot as plt\n\ndata = random.random((5,5))\nimg = plt.imshow(data, interpolation='nearest')\nimg.set_cmap('hot')\nplt.axis('off')\nplt.savefig(\"test.png\", bbox_inches='tight')\n"
+    ],
+    "answer_id": 9295472
+  },
+  {
+    "question_title": "How to add a title to each subplot",
+    "question_post": "\r\n                \r\nI have one figure which contains many subplots.\n\nfig = plt.figure(num=None, figsize=(26, 12), dpi=80, facecolor='w', edgecolor='k')\nfig.canvas.set_window_title('Window Title')\n\n# Returns the Axes instance\nax = fig.add_subplot(311) \nax2 = fig.add_subplot(312) \nax3 = fig.add_subplot(313) \n\n\nHow do I add titles to the subplots?\n\nfig.suptitle adds a title to all graphs and although ax.set_title() exists, the latter does not add any title to my subplots. \n\nThank you for your help.\n\nEdit:\nCorrected typo about set_title(). Thanks Rutger Kassies \n    ",
+    "answer_post": "\r\nax.title.set_text('My Plot Title') seems to work too.\nfig = plt.figure()\nax1 = fig.add_subplot(221)\nax2 = fig.add_subplot(222)\nax3 = fig.add_subplot(223)\nax4 = fig.add_subplot(224)\nax1.title.set_text('First Plot')\nax2.title.set_text('Second Plot')\nax3.title.set_text('Third Plot')\nax4.title.set_text('Fourth Plot')\nplt.show()\n\n\n    ",
+    "code_snippets": [
+      "fig = plt.figure()\nax1 = fig.add_subplot(221)\nax2 = fig.add_subplot(222)\nax3 = fig.add_subplot(223)\nax4 = fig.add_subplot(224)\nax1.title.set_text('First Plot')\nax2.title.set_text('Second Plot')\nax3.title.set_text('Third Plot')\nax4.title.set_text('Fourth Plot')\nplt.show()\n"
+    ],
+    "answer_id": 39133654
+  },
+  {
+    "question_title": "How do I check if PyTorch is using the GPU?",
+    "question_post": "\r\n                \r\nHow do I check if PyTorch is using the GPU? The nvidia-smi command can detect GPU activity, but I want to check it directly from inside a Python script.\n    ",
+    "answer_post": "\r\nThese functions should help:\n>>> import torch\n\n>>> torch.cuda.is_available()\nTrue\n\n>>> torch.cuda.device_count()\n1\n\n>>> torch.cuda.current_device()\n0\n\n>>> torch.cuda.device(0)\n<torch.cuda.device at 0x7efce0b03be0>\n\n>>> torch.cuda.get_device_name(0)\n'GeForce GTX 950M'\n\nThis tells us:\n\nCUDA is available and can be used by one device.\nDevice 0 refers to the GPU GeForce GTX 950M, and it is currently chosen by PyTorch.\n\n    ",
+    "code_snippets": [
+      ">>> import torch\n\n>>> torch.cuda.is_available()\nTrue\n\n>>> torch.cuda.device_count()\n1\n\n>>> torch.cuda.current_device()\n0\n\n>>> torch.cuda.device(0)\n<torch.cuda.device at 0x7efce0b03be0>\n\n>>> torch.cuda.get_device_name(0)\n'GeForce GTX 950M'\n"
+    ],
+    "answer_id": 48152675
+  },
+  {
+    "question_title": "How to get a string after a specific substring?",
+    "question_post": "\r\n                \r\nHow can I get a string after a specific substring?\nFor example, I want to get the string after \"world\" in\nmy_string=\"hello python world, I'm a beginner\"\n\n...which in this case is: \", I'm a beginner\")\n    ",
+    "answer_post": "\r\nThe easiest way is probably just to split on your target word\nmy_string=\"hello python world , i'm a beginner\"\nprint(my_string.split(\"world\",1)[1])\n\nsplit takes the word (or character) to split on and optionally a limit to the number of splits.\nIn this example, split on \"world\" and limit it to only one split.\n    ",
+    "code_snippets": [
+      "my_string=\"hello python world , i'm a beginner\"\nprint(my_string.split(\"world\",1)[1])\n"
+    ],
+    "answer_id": 12572391
+  },
+  {
+    "question_title": "How to read a large file - line by line?",
+    "question_post": "\r\n                \r\nI want to iterate over each line of an entire file. One way to do this is by reading the entire file, saving it to a list, then going over the line of interest. This method uses a lot of memory, so I am looking for an alternative.\nMy code so far:\nfor each_line in fileinput.input(input_file):\n    do_something(each_line)\n\n    for each_line_again in fileinput.input(input_file):\n        do_something(each_line_again)\n\nExecuting this code gives an error message: device active.\nAny suggestions?\nThe purpose is to calculate pair-wise string similarity, meaning for each line in file, I want to calculate the Levenshtein distance with every other line.\nNov. 2022 Edit: A related question that was asked 8 months after this question has many useful answers and comments. To get a deeper understanding of python logic, do also read this related question How should I read a file line-by-line in Python?\n    ",
+    "answer_post": "\r\nThe correct, fully Pythonic way to read a file is the following:\n\nwith open(...) as f:\n    for line in f:\n        # Do something with 'line'\n\n\nThe with statement handles opening and closing the file, including if an exception is raised in the inner block. The for line in f treats the file object f as an iterable, which automatically uses buffered I/O and memory management so you don't have to worry about large files.\n\n\n  There should be one -- and preferably only one -- obvious way to do it.\n\n    ",
+    "code_snippets": [
+      "with open(...) as f:\n    for line in f:\n        # Do something with 'line'\n"
+    ],
+    "answer_id": 8010133
+  },
+  {
+    "question_title": "How to split elements of a list?",
+    "question_post": "\r\n                \r\nI have a list:\n\nmy_list = ['element1\\t0238.94', 'element2\\t2.3904', 'element3\\t0139847']\n\n\nHow can I delete the \\t and everything after to get this result:\n\n['element1', 'element2', 'element3']\n\n    ",
+    "answer_post": "\r\nSomething like:\n\n>>> l = ['element1\\t0238.94', 'element2\\t2.3904', 'element3\\t0139847']\n>>> [i.split('\\t', 1)[0] for i in l]\n['element1', 'element2', 'element3']\n\n    ",
+    "code_snippets": [
+      ">>> l = ['element1\\t0238.94', 'element2\\t2.3904', 'element3\\t0139847']\n>>> [i.split('\\t', 1)[0] for i in l]\n['element1', 'element2', 'element3']\n"
+    ],
+    "answer_id": 6696059
+  },
+  {
+    "question_title": "How to check Django version",
+    "question_post": "\r\n                \r\nI have to use Python and Django for our application. So, I have two versions of Python, 2.6 and 2.7. Now I have installed Django. I could run the sample application for testing Django succesfuly. But how do I make sure whether Django uses the 2.6 or 2.7 version and what version of modules Django uses?\n    ",
+    "answer_post": "\r\nDjango 1.5 supports Python 2.6.5 and later.\n\nIf you're under Linux and want to check the Python version you're using, run python -V from the command line.\n\nIf you want to check the Django version, open a Python console and type\n\n>>> import django\n>>> django.VERSION\n(2, 0, 0, 'final', 0)\n\n    ",
+    "code_snippets": [
+      ">>> import django\n>>> django.VERSION\n(2, 0, 0, 'final', 0)\n"
+    ],
+    "answer_id": 6468505
+  },
+  {
+    "question_title": "How do I Pandas group-by to get sum?",
+    "question_post": "\r\n                \r\nI am using this dataframe:\nFruit   Date      Name  Number\nApples  10/6/2016 Bob    7\nApples  10/6/2016 Bob    8\nApples  10/6/2016 Mike   9\nApples  10/7/2016 Steve 10\nApples  10/7/2016 Bob    1\nOranges 10/7/2016 Bob    2\nOranges 10/6/2016 Tom   15\nOranges 10/6/2016 Mike  57\nOranges 10/6/2016 Bob   65\nOranges 10/7/2016 Tony   1\nGrapes  10/7/2016 Bob    1\nGrapes  10/7/2016 Tom   87\nGrapes  10/7/2016 Bob   22\nGrapes  10/7/2016 Bob   12\nGrapes  10/7/2016 Tony  15\n\nI would like to aggregate this by Name and then by Fruit to get a total number of Fruit per Name. For example:\nBob,Apples,16\n\nI tried grouping by Name and Fruit but how do I get the total number of Fruit?\n    ",
+    "answer_post": "\r\nUse GroupBy.sum:\ndf.groupby(['Fruit','Name']).sum()\n\nOut[31]: \n               Number\nFruit   Name         \nApples  Bob        16\n        Mike        9\n        Steve      10\nGrapes  Bob        35\n        Tom        87\n        Tony       15\nOranges Bob        67\n        Mike       57\n        Tom        15\n        Tony        1\n\nTo specify the column to sum, use this: df.groupby(['Name', 'Fruit'])['Number'].sum()\n    ",
+    "code_snippets": [
+      "df.groupby(['Fruit','Name']).sum()\n\nOut[31]: \n               Number\nFruit   Name         \nApples  Bob        16\n        Mike        9\n        Steve      10\nGrapes  Bob        35\n        Tom        87\n        Tony       15\nOranges Bob        67\n        Mike       57\n        Tom        15\n        Tony        1\n"
+    ],
+    "answer_id": 39923012
+  },
+  {
+    "question_title": "Comparing two dictionaries and checking how many (key, value) pairs are equal",
+    "question_post": "\r\n                \r\nI have two dictionaries, but for simplification, I will take these two:\n\n>>> x = dict(a=1, b=2)\n>>> y = dict(a=2, b=2)\n\n\nNow, I want to compare whether each key, value pair in x has the same corresponding value in y. So I wrote this:\n\n>>> for x_values, y_values in zip(x.iteritems(), y.iteritems()):\n        if x_values == y_values:\n            print 'Ok', x_values, y_values\n        else:\n            print 'Not', x_values, y_values\n\n\nAnd it works since a tuple is returned and then compared for equality.\n\nMy questions:\n\nIs this correct? Is there a better way to do this? Better not in speed, I am talking about code elegance.\n\nUPDATE: I forgot to mention that I have to check how many key, value pairs are equal. \n    ",
+    "answer_post": "\r\nIf you want to know how many values match in both the dictionaries, you should have said that :)\nMaybe something like this:\nshared_items = {k: x[k] for k in x if k in y and x[k] == y[k]}\nprint(len(shared_items))\n\n    ",
+    "code_snippets": [
+      "shared_items = {k: x[k] for k in x if k in y and x[k] == y[k]}\nprint(len(shared_items))\n"
+    ],
+    "answer_id": 4527978
+  },
+  {
+    "question_title": "How do I convert a numpy array to (and display) an image?",
+    "question_post": "\r\n                \r\nI have created an array thusly:\n\nimport numpy as np\ndata = np.zeros( (512,512,3), dtype=np.uint8)\ndata[256,256] = [255,0,0]\n\n\nWhat I want this to do is display a single red dot in the center of a 512x512 image. (At least to begin with... I think I can figure out the rest from there)\n    ",
+    "answer_post": "\r\nYou could use PIL to create (and display) an image:\n\nfrom PIL import Image\nimport numpy as np\n\nw, h = 512, 512\ndata = np.zeros((h, w, 3), dtype=np.uint8)\ndata[0:256, 0:256] = [255, 0, 0] # red patch in upper left\nimg = Image.fromarray(data, 'RGB')\nimg.save('my.png')\nimg.show()\n\n    ",
+    "code_snippets": [
+      "from PIL import Image\nimport numpy as np\n\nw, h = 512, 512\ndata = np.zeros((h, w, 3), dtype=np.uint8)\ndata[0:256, 0:256] = [255, 0, 0] # red patch in upper left\nimg = Image.fromarray(data, 'RGB')\nimg.save('my.png')\nimg.show()\n"
+    ],
+    "answer_id": 2659378
+  },
+  {
+    "question_title": "How can I check if string input is a number?",
+    "question_post": "\r\n                \r\nHow do I check if a user's string input is a number (e.g., -1, 0, 1, etc.)?\nuser_input = input(\"Enter something:\")\n\nif type(user_input) == int:\n    print(\"Is a number\")\nelse:\n    print(\"Not a number\")\n\nThe above won't work since input always returns a string.\n    ",
+    "answer_post": "\nSimply try converting it to an int and then bailing out if it doesn't work.\ntry:\n    val = int(userInput)\nexcept ValueError:\n    print(\"That's not an int!\")\n\nSee Handling Exceptions in the official tutorial.\n    ",
+    "code_snippets": [
+      "try:\n    val = int(userInput)\nexcept ValueError:\n    print(\"That's not an int!\")\n"
+    ],
+    "answer_id": 5424739
+  },
+  {
+    "question_title": "How to append multiple values to a list in Python",
+    "question_post": "\r\n                \r\nI am trying to figure out how to append multiple values to a list in Python. I know there are few methods to do so, such as manually input the values, or put the append operation in a for loop, or the append and extend functions.\nHowever, I wonder if there is neater way to do so? Maybe a certain package or function?\n    ",
+    "answer_post": "\r\nYou can use the sequence method list.extend to extend the list by multiple values from any kind of iterable, being it another list or any other thing that provides a sequence of values.\n\n>>> lst = [1, 2]\n>>> lst.append(3)\n>>> lst.append(4)\n>>> lst\n[1, 2, 3, 4]\n\n>>> lst.extend([5, 6, 7])\n>>> lst.extend((8, 9, 10))\n>>> lst\n[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\n\n>>> lst.extend(range(11, 14))\n>>> lst\n[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]\n\n\nSo you can use list.append() to append a single value, and list.extend() to append multiple values.\n    ",
+    "code_snippets": [
+      ">>> lst = [1, 2]\n>>> lst.append(3)\n>>> lst.append(4)\n>>> lst\n[1, 2, 3, 4]\n\n>>> lst.extend([5, 6, 7])\n>>> lst.extend((8, 9, 10))\n>>> lst\n[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\n\n>>> lst.extend(range(11, 14))\n>>> lst\n[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]\n"
+    ],
+    "answer_id": 20196202
+  },
+  {
+    "question_title": "How to check whether a pandas DataFrame is empty?",
+    "question_post": "\r\n                \r\nHow to check whether a pandas DataFrame is empty? In my case I want to print some message in terminal if the DataFrame is empty. \n    ",
+    "answer_post": "\r\nYou can use the attribute df.empty to check whether it's empty or not:\nif df.empty:\n    print('DataFrame is empty!')\n\nSource: Pandas Documentation\n    ",
+    "code_snippets": [
+      "if df.empty:\n    print('DataFrame is empty!')\n"
+    ],
+    "answer_id": 19828967
+  },
+  {
+    "question_title": "How to convert an int to a hex string?",
+    "question_post": "\r\n                \r\nI want to take an integer (that will be <= 255), to a hex string representation\n\ne.g.: I want to pass in 65 and get out '\\x41', or 255 and get '\\xff'.\n\nI've tried doing this with the struct.pack('c',65), but that chokes on anything above 9 since it wants to take in a single character string.\n    ",
+    "answer_post": "\r\nYou are looking for the chr function.\n\nYou seem to be mixing decimal representations of integers and hex representations of integers, so it's not entirely clear what you need. Based on the description you gave, I think one of these snippets shows what you want.\n\n>>> chr(0x65) == '\\x65'\nTrue\n\n\n>>> hex(65)\n'0x41'\n>>> chr(65) == '\\x41'\nTrue\n\n\nNote that this is quite different from a string containing an integer as hex. If that is what you want, use the hex builtin.\n    ",
+    "code_snippets": [
+      ">>> chr(0x65) == '\\x65'\nTrue\n\n\n>>> hex(65)\n'0x41'\n>>> chr(65) == '\\x41'\nTrue\n"
+    ],
+    "answer_id": 2269836
+  },
+  {
+    "question_title": "How can I fill out a Python string with spaces?",
+    "question_post": "\r\n                \r\nI want to fill out a string with spaces. I know that the following works for zero's:\n\n>>> print  \"'%06d'\"%4\n'000004'\n\n\nBut what should I do when I want this?:\n\n'hi    '\n\n\nof course I can measure string length and do str+\" \"*leftover, but I'd like the shortest way.\n    ",
+    "answer_post": "\r\nYou can do this with str.ljust(width[, fillchar]):\n\n\n  Return the string left justified in a string of length width. Padding is done using the specified fillchar (default is a space). The original string is returned if width is less than len(s).\n\n\n>>> 'hi'.ljust(10)\n'hi        '\n\n    ",
+    "code_snippets": [
+      ">>> 'hi'.ljust(10)\n'hi        '\n"
+    ],
+    "answer_id": 5676676
+  },
+  {
+    "question_title": "How to iterate over columns of pandas dataframe to run regression",
+    "question_post": "\r\n                \r\nI have this code using Pandas in Python:\nall_data = {}\nfor ticker in ['FIUIX', 'FSAIX', 'FSAVX', 'FSTMX']:\n    all_data[ticker] = web.get_data_yahoo(ticker, '1/1/2010', '1/1/2015')\n\nprices = DataFrame({tic: data['Adj Close'] for tic, data in all_data.iteritems()})  \nreturns = prices.pct_change()\n\nI know I can run a regression like this:\nregs = sm.OLS(returns.FIUIX,returns.FSTMX).fit()\n\nbut how can I do this for each column in the dataframe? Specifically, how can I iterate over columns, in order to run the regression on each?\nSpecifically, I want to regress each other ticker symbol (FIUIX, FSAIX and FSAVX) on FSTMX, and store the residuals for each regression.\nI've tried various versions of the following, but nothing I've tried gives the desired result:\nresids = {}\nfor k in returns.keys():\n    reg = sm.OLS(returns[k],returns.FSTMX).fit()\n    resids[k] = reg.resid\n\nIs there something wrong with the returns[k] part of the code? How can I use the k value to access a column? Or else is there a simpler approach?\n    ",
+    "answer_post": "\r\nfor column in df:\n    print(df[column])\n\n    ",
+    "code_snippets": [
+      "for column in df:\n    print(df[column])\n"
+    ],
+    "answer_id": 32558621
+  },
+  {
+    "question_title": "How to add header row to a pandas DataFrame",
+    "question_post": "\r\n                \r\nI am reading a csv file into pandas. This csv file consists of four columns and some rows, but does not have a header row, which I want to add. I have been trying the following:\nCov = pd.read_csv(\"path/to/file.txt\", sep='\\t')\nFrame = pd.DataFrame([Cov], columns = [\"Sequence\", \"Start\", \"End\", \"Coverage\"])\nFrame.to_csv(\"path/to/file.txt\", sep='\\t')\n\nBut when I apply the code, I get the following Error:\nValueError: Shape of passed values is (1, 1), indices imply (4, 1)\n\nWhat exactly does the error mean? And what would be a clean way in python to add a header row to my csv file/pandas df?\n    ",
+    "answer_post": "\r\nYou can use names directly in the read_csv \n\n\n  names : array-like, default None List of column names to use. If file\n  contains no header row, then you should explicitly pass header=None\n\n\nCov = pd.read_csv(\"path/to/file.txt\", \n                  sep='\\t', \n                  names=[\"Sequence\", \"Start\", \"End\", \"Coverage\"])\n\n    ",
+    "code_snippets": [
+      "Cov = pd.read_csv(\"path/to/file.txt\", \n                  sep='\\t', \n                  names=[\"Sequence\", \"Start\", \"End\", \"Coverage\"])\n"
+    ],
+    "answer_id": 34092032
+  },
+  {
+    "question_title": "How can I use Python to get the system hostname?",
+    "question_post": "\r\n                \r\nI'm writing a chat program for a local network. I would like be able to identify computers and get the user-set computer name with Python.\n    ",
+    "answer_post": "\r\nUse socket and its gethostname() functionality. This will get the hostname of the computer where the Python interpreter is running:\n\nimport socket\nprint(socket.gethostname())\n\n    ",
+    "code_snippets": [
+      "import socket\nprint(socket.gethostname())\n"
+    ],
+    "answer_id": 4271755
+  },
+  {
+    "question_title": "How to find all occurrences of an element in a list",
+    "question_post": "\r\n                \r\nindex() will give the first occurrence of an item in a list. Is there a neat trick which returns all indices in a list for an element?\n    ",
+    "answer_post": "\r\nYou can use a list comprehension with enumerate:\nindices = [i for i, x in enumerate(my_list) if x == \"whatever\"]\n\nThe iterator enumerate(my_list) yields pairs (index, item) for each item in the list. Using i, x as loop variable target unpacks these pairs into the index i and the list item x. We filter down to all x that match our criterion, and select the indices i of these elements.\n    ",
+    "code_snippets": [
+      "indices = [i for i, x in enumerate(my_list) if x == \"whatever\"]\n"
+    ],
+    "answer_id": 6294205
+  },
+  {
+    "question_title": "How to select all columns except one in pandas?",
+    "question_post": "\r\n                \r\nI have a dataframe that look like this:\n          a         b         c         d\n0  0.418762  0.042369  0.869203  0.972314\n1  0.991058  0.510228  0.594784  0.534366\n2  0.407472  0.259811  0.396664  0.894202\n3  0.726168  0.139531  0.324932  0.906575\n\nHow I can get all columns except b?\n    ",
+    "answer_post": "\r\nWhen the columns are not a MultiIndex, df.columns is just an array of column names so you can do:\n\ndf.loc[:, df.columns != 'b']\n\n          a         c         d\n0  0.561196  0.013768  0.772827\n1  0.882641  0.615396  0.075381\n2  0.368824  0.651378  0.397203\n3  0.788730  0.568099  0.869127\n\n    ",
+    "code_snippets": [
+      "df.loc[:, df.columns != 'b']\n\n          a         c         d\n0  0.561196  0.013768  0.772827\n1  0.882641  0.615396  0.075381\n2  0.368824  0.651378  0.397203\n3  0.788730  0.568099  0.869127\n"
+    ],
+    "answer_id": 29763653
+  },
+  {
+    "question_title": "How to drop a list of rows from Pandas dataframe?",
+    "question_post": "\r\n                \r\nI have a dataframe df :\n\n>>> df\n                  sales  discount  net_sales    cogs\nSTK_ID RPT_Date                                     \n600141 20060331   2.709       NaN      2.709   2.245\n       20060630   6.590       NaN      6.590   5.291\n       20060930  10.103       NaN     10.103   7.981\n       20061231  15.915       NaN     15.915  12.686\n       20070331   3.196       NaN      3.196   2.710\n       20070630   7.907       NaN      7.907   6.459\n\n\nThen I want to drop rows with certain sequence numbers which indicated in a list, suppose here is [1,2,4], then left:\n\n                  sales  discount  net_sales    cogs\nSTK_ID RPT_Date                                     \n600141 20060331   2.709       NaN      2.709   2.245\n       20061231  15.915       NaN     15.915  12.686\n       20070630   7.907       NaN      7.907   6.459\n\n\nHow or what function can do that ?\n    ",
+    "answer_post": "\r\nUse DataFrame.drop and pass it a Series of index labels:\nIn [65]: df\nOut[65]: \n       one  two\none      1    4\ntwo      2    3\nthree    3    2\nfour     4    1\n    \n    \nIn [66]: df.drop(index=[1,3])\nOut[66]: \n       one  two\none      1    4\nthree    3    2\n\n    ",
+    "code_snippets": [
+      "In [65]: df\nOut[65]: \n       one  two\none      1    4\ntwo      2    3\nthree    3    2\nfour     4    1\n    \n    \nIn [66]: df.drop(index=[1,3])\nOut[66]: \n       one  two\none      1    4\nthree    3    2\n"
+    ],
+    "answer_id": 14661768
+  },
+  {
+    "question_title": "How to convert a string with comma-delimited items to a list in Python?",
+    "question_post": "\r\n                \r\nHow do you convert a string into a list?\n\nSay the string is like text = \"a,b,c\". After the conversion, text == ['a', 'b', 'c'] and hopefully text[0] == 'a', text[1] == 'b'?\n    ",
+    "answer_post": "\r\nLike this:\n>>> text = 'a,b,c'\n>>> text = text.split(',')\n>>> text\n[ 'a', 'b', 'c' ]\n\n    ",
+    "code_snippets": [
+      ">>> text = 'a,b,c'\n>>> text = text.split(',')\n>>> text\n[ 'a', 'b', 'c' ]\n"
+    ],
+    "answer_id": 5387227
+  },
+  {
+    "question_title": "How to convert local time string to UTC?",
+    "question_post": "\r\n                \r\nHow do I convert a datetime string in local time to a string in UTC time?\n\nI'm sure I've done this before, but can't find it and SO will hopefully help me (and others) do that in future.\n\nClarification:  For example, if I have 2008-09-17 14:02:00 in my local timezone (+10), I'd like to generate a string with the equivalent UTC time: 2008-09-17 04:02:00.\n\nAlso, from http://lucumr.pocoo.org/2011/7/15/eppur-si-muove/, note that in general this isn't possible as with DST and other issues there is no unique conversion from local time to UTC time.\n    ",
+    "answer_post": "\r\nThanks @rofly, the full conversion from string to string is as follows:\nimport time\ntime.strftime(\"%Y-%m-%d %H:%M:%S\", \n              time.gmtime(time.mktime(time.strptime(\"2008-09-17 14:04:00\", \n                                                    \"%Y-%m-%d %H:%M:%S\"))))\n\nMy summary of the time/calendar functions:\ntime.strptime\nstring --> tuple (no timezone applied, so matches string)\ntime.mktime\nlocal time tuple --> seconds since epoch (always local time)\ntime.gmtime\nseconds since epoch --> tuple in UTC\nand\ncalendar.timegm\ntuple in UTC --> seconds since epoch\ntime.localtime\nseconds since epoch --> tuple in local timezone\n    ",
+    "code_snippets": [
+      "import time\ntime.strftime(\"%Y-%m-%d %H:%M:%S\", \n              time.gmtime(time.mktime(time.strptime(\"2008-09-17 14:04:00\", \n                                                    \"%Y-%m-%d %H:%M:%S\"))))\n"
+    ],
+    "answer_id": 79913
+  },
+  {
+    "question_title": "How do I remove NaN values from a NumPy array?",
+    "question_post": "\r\n                \r\nHow do I remove NaN values from a NumPy array?\n[1, 2, NaN, 4, NaN, 8]   \u27f6   [1, 2, 4, 8]\n\n    ",
+    "answer_post": "\r\nTo remove NaN values from a NumPy array x:\nx = x[~numpy.isnan(x)]\n\nExplanation\nThe inner function numpy.isnan returns a boolean/logical array which has the value True everywhere that x is not-a-number. Since we want the opposite, we use the logical-not operator ~ to get an array with Trues everywhere that x is a valid number.\nLastly, we use this logical array to index into the original array x, in order to retrieve just the non-NaN values.\n    ",
+    "code_snippets": [
+      "x = x[~numpy.isnan(x)]\n"
+    ],
+    "answer_id": 11620982
+  },
+  {
+    "question_title": "How do I get my program to sleep for 50 milliseconds?",
+    "question_post": "\n                \nHow do I get my Python program to sleep for 50 milliseconds?\n    ",
+    "answer_post": "\r\nUse time.sleep()\nfrom time import sleep\nsleep(0.05)\n\n    ",
+    "code_snippets": [
+      "from time import sleep\nsleep(0.05)\n"
+    ],
+    "answer_id": 377463
+  },
+  {
+    "question_title": "How to print a specific row of a pandas DataFrame?",
+    "question_post": "\r\n                \r\nI have a massive DataFrame, and I'm getting the error:\nTypeError: (\"Empty 'DataFrame': no numeric data to plot\", 'occurred at index 159220')\n\nI've already dropped nulls, and checked dtypes for the DataFrame so I have no guess as to why it's failing on that row.\nHow do I print out just that row (at index 159220) of the DataFrame?\n    ",
+    "answer_post": "\r\nWhen you call loc with a scalar value, you get a pd.Series. That series will then have one dtype.  If you want to see the row as it is in the dataframe, you'll want to pass an array like indexer to loc.\n\nWrap your index value with an additional pair of square brackets\n\nprint(df.loc[[159220]])\n\n    ",
+    "code_snippets": [
+      "print(df.loc[[159220]])\n"
+    ],
+    "answer_id": 43773398
+  },
+  {
+    "question_title": "How to get a random number between a float range?",
+    "question_post": "\r\n                \r\nrandrange(start, stop) only takes integer arguments. So how would I get a random number between two float values?\n    ",
+    "answer_post": "\r\nUse random.uniform(a, b):\n>>> import random\n>>> random.uniform(1.5, 1.9)\n1.8733202628557872\n\n    ",
+    "code_snippets": [
+      ">>> import random\n>>> random.uniform(1.5, 1.9)\n1.8733202628557872\n"
+    ],
+    "answer_id": 6088092
+  },
+  {
+    "question_title": "How to split by comma and strip white spaces in Python?",
+    "question_post": "\n                \nI have some python code that splits on comma, but doesn't strip the whitespace:\n\n>>> string = \"blah, lots  ,  of ,  spaces, here \"\n>>> mylist = string.split(',')\n>>> print mylist\n['blah', ' lots  ', '  of ', '  spaces', ' here ']\n\n\nI would rather end up with whitespace removed like this:\n\n['blah', 'lots', 'of', 'spaces', 'here']\n\n\nI am aware that I could loop through the list and strip() each item but, as this is Python, I'm guessing there's a quicker, easier and more elegant way of doing it.\n    ",
+    "answer_post": "\r\nUse list comprehension -- simpler, and just as easy to read as a for loop.\n\nmy_string = \"blah, lots  ,  of ,  spaces, here \"\nresult = [x.strip() for x in my_string.split(',')]\n# result is [\"blah\", \"lots\", \"of\", \"spaces\", \"here\"]\n\n\nSee: Python docs on List Comprehension\nA good 2 second explanation of list comprehension.\n    ",
+    "code_snippets": [
+      "my_string = \"blah, lots  ,  of ,  spaces, here \"\nresult = [x.strip() for x in my_string.split(',')]\n# result is [\"blah\", \"lots\", \"of\", \"spaces\", \"here\"]\n"
+    ],
+    "answer_id": 4071407
+  },
+  {
+    "question_title": "How can I check if a key exists in a dictionary? [duplicate]",
+    "question_post": "\r\n                    \r\n            \r\n        \r\n            \r\n                \r\n                    \r\n                            \r\n                                This question already has answers here:\r\n                                \r\n                            \r\n                    \r\n                \r\n            \r\n                    \r\n                        Check if a given key already exists in a dictionary\r\n                            \r\n                                (16 answers)\r\n                            \r\n                    \r\n                Closed 4 years ago.\r\n        \r\n\r\n\r\n    \r\n\r\nLet's say I have an associative array like so: {'key1': 22, 'key2': 42}.\n\nHow can I check if key1 exists in the dictionary?\n    ",
+    "answer_post": "\r\nif key in array:\n  # do something\n\n\nAssociative arrays are called dictionaries in Python and you can learn more about them in the stdtypes documentation.\n    ",
+    "code_snippets": [
+      "if key in array:\n  # do something\n"
+    ],
+    "answer_id": 3845371
+  },
+  {
+    "question_title": "How can I convert a character to a integer in Python, and viceversa?",
+    "question_post": "\r\n                \r\nI want to get, given a character, its ASCII value.\n\nFor example, for the character a, I want to get 97, and vice versa.\n    ",
+    "answer_post": "\r\nUse chr() and ord():\n\n>>> chr(97)\n'a'\n>>> ord('a')\n97\n\n    ",
+    "code_snippets": [
+      ">>> chr(97)\n'a'\n>>> ord('a')\n97\n"
+    ],
+    "answer_id": 704160
+  },
+  {
+    "question_title": "How can I find script's directory? [duplicate]",
+    "question_post": "\r\n                    \r\n            \r\n        \r\n            \r\n                \r\n                    \r\n                            \r\n                                This question already has answers here:\r\n                                \r\n                            \r\n                    \r\n                \r\n            \r\n                    \r\n                        How do I get the path and name of the python file that is currently executing?\r\n                            \r\n                                (26 answers)\r\n                            \r\n                    \r\n                Closed 7 years ago.\r\n        \r\n\r\n\r\n    \r\n\r\nConsider the following Python code:\n\nimport os\nprint os.getcwd()\n\n\nI use os.getcwd() to get the script file's directory location. When I run the script from the command line it gives me the correct path whereas when I run it from a script run by code in a Django view it prints /.\n\nHow can I get the path to the script from within a script run by a Django view?\n\nUPDATE:\nSumming up the answers thus far - os.getcwd() and os.path.abspath() both give the current working directory which may or may not be the directory where the script resides. In my web host setup __file__ gives only the filename without the path.\n\nIsn't there any way in Python to (always) be able to receive the path in which the script resides?\n    ",
+    "answer_post": "\r\nYou need to call os.path.realpath on __file__, so that when __file__ is a filename without the path you still get the dir path:\n\nimport os\nprint(os.path.dirname(os.path.realpath(__file__)))\n\n    ",
+    "code_snippets": [
+      "import os\nprint(os.path.dirname(os.path.realpath(__file__)))\n"
+    ],
+    "answer_id": 9350788
+  },
+  {
+    "question_title": "How to convert string representation of list to a list",
+    "question_post": "\r\n                \r\nI was wondering what the simplest way is to convert a string representation of a list like the following to a list:\nx = '[ \"A\",\"B\",\"C\" , \" D\"]'\n\nEven in cases where the user puts spaces in between the commas, and spaces inside of the quotes, I need to handle that as well and convert it to:\nx = [\"A\", \"B\", \"C\", \"D\"] \n\nI know I can strip spaces with strip() and split() and check for non-letter characters. But the code was getting very kludgy. Is there a quick function that I'm not aware of?\n    ",
+    "answer_post": "\r\n>>> import ast\n>>> x = '[ \"A\",\"B\",\"C\" , \" D\"]'\n>>> x = ast.literal_eval(x)\n>>> x\n['A', 'B', 'C', ' D']\n>>> x = [n.strip() for n in x]\n>>> x\n['A', 'B', 'C', 'D']\n\nast.literal_eval:\n\nEvaluate an expression node or a string containing only a Python literal or container display. The string or node provided may only consist of the following Python literal structures: strings, bytes, numbers, tuples, lists, dicts, sets, booleans, None and Ellipsis.\nThis can be used for evaluating strings containing Python values without the need to parse the values oneself. It is not capable of evaluating arbitrarily complex expressions, for example involving operators or indexing.\n\n    ",
+    "code_snippets": [
+      ">>> import ast\n>>> x = '[ \"A\",\"B\",\"C\" , \" D\"]'\n>>> x = ast.literal_eval(x)\n>>> x\n['A', 'B', 'C', ' D']\n>>> x = [n.strip() for n in x]\n>>> x\n['A', 'B', 'C', 'D']\n"
+    ],
+    "answer_id": 1894296
+  },
+  {
+    "question_title": "How to create new folder? [duplicate]",
+    "question_post": "\r\n                    \r\n            \r\n        \r\n            \r\n                \r\n                    \r\n                            \r\n                                This question already has answers here:\r\n                                \r\n                            \r\n                    \r\n                \r\n            \r\n                    \r\n                        How do I create a directory, and any missing parent directories?\r\n                            \r\n                                (27 answers)\r\n                            \r\n                    \r\n                Closed 9 years ago.\r\n        \r\n\r\n\r\n    \r\n\r\nI want to put output information of my program to a folder. if given folder does not exist, then the program should create a new folder with folder name as given in the program. Is this possible? If yes, please let me know how.\n\nSuppose I have given folder path like \"C:\\Program Files\\alex\" and alex folder doesn't exist then program should create alex folder and should put output information in the alex folder.\n    ",
+    "answer_post": "\r\nYou can create a folder with os.makedirs()\nand use os.path.exists() to see if it already exists:\n\nnewpath = r'C:\\Program Files\\arbitrary' \nif not os.path.exists(newpath):\n    os.makedirs(newpath)\n\n\nIf you're trying to make an installer: Windows Installer does a lot of work for you.\n    ",
+    "code_snippets": [
+      "newpath = r'C:\\Program Files\\arbitrary' \nif not os.path.exists(newpath):\n    os.makedirs(newpath)\n"
+    ],
+    "answer_id": 1274465
+  },
+  {
+    "question_title": "How to count the number of files in a directory using Python",
+    "question_post": "\r\n                \r\nHow do I count only the files in a directory? This counts the directory itself as a file:\nlen(glob.glob('*'))\n\n    ",
+    "answer_post": "\r\nos.listdir() will be slightly more efficient than using glob.glob.  To test if a filename is an ordinary file (and not a directory or other entity), use os.path.isfile():\n\nimport os, os.path\n\n# simple version for working with CWD\nprint len([name for name in os.listdir('.') if os.path.isfile(name)])\n\n# path joining version for other paths\nDIR = '/tmp'\nprint len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])\n\n    ",
+    "code_snippets": [
+      "import os, os.path\n\n# simple version for working with CWD\nprint len([name for name in os.listdir('.') if os.path.isfile(name)])\n\n# path joining version for other paths\nDIR = '/tmp'\nprint len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])\n"
+    ],
+    "answer_id": 2632251
+  },
+  {
+    "question_title": "How to get current CPU and RAM usage in Python?",
+    "question_post": "\r\n                \r\nHow can I get the current system status (current CPU, RAM, free disk space, etc.) in Python? Ideally, it would work for both Unix and Windows platforms.\nThere seems to be a few possible ways of extracting that from my search:\n\nUsing a library such as PSI (that currently seems not actively developed and not supported on multiple platforms) or something like pystatgrab (again no activity since 2007 it seems and no support for Windows).\n\nUsing platform specific code such as using a os.popen(\"ps\") or similar for the *nix systems and MEMORYSTATUS in ctypes.windll.kernel32 (see this recipe on ActiveState) for the Windows platform. One could put a Python class together with all those code snippets.\n\n\nIt's not that those methods are bad but is there already a well-supported, multi-platform way of doing the same thing?\n    ",
+    "answer_post": "\r\nThe psutil library gives you information about CPU, RAM, etc., on a variety of platforms:\n\npsutil is a module providing an interface for retrieving information on running processes and system utilization (CPU, memory) in a portable way by using Python, implementing many functionalities offered by tools like ps, top  and Windows task manager.\nIt currently supports Linux, Windows, OSX, Sun Solaris, FreeBSD, OpenBSD and NetBSD, both 32-bit and 64-bit architectures, with Python versions from 2.6 to 3.5 (users of Python 2.4 and 2.5 may use 2.1.3 version).\n\n\nSome examples:\n#!/usr/bin/env python\nimport psutil\n# gives a single float value\npsutil.cpu_percent()\n# gives an object with many fields\npsutil.virtual_memory()\n# you can convert that object to a dictionary \ndict(psutil.virtual_memory()._asdict())\n# you can have the percentage of used RAM\npsutil.virtual_memory().percent\n79.2\n# you can calculate percentage of available memory\npsutil.virtual_memory().available * 100 / psutil.virtual_memory().total\n20.8\n\nHere's other documentation that provides more concepts and interest concepts:\n\nhttps://psutil.readthedocs.io/en/latest/\n\n    ",
+    "code_snippets": [
+      "#!/usr/bin/env python\nimport psutil\n# gives a single float value\npsutil.cpu_percent()\n# gives an object with many fields\npsutil.virtual_memory()\n# you can convert that object to a dictionary \ndict(psutil.virtual_memory()._asdict())\n# you can have the percentage of used RAM\npsutil.virtual_memory().percent\n79.2\n# you can calculate percentage of available memory\npsutil.virtual_memory().available * 100 / psutil.virtual_memory().total\n20.8\n"
+    ],
+    "answer_id": 2468983
+  },
+  {
+    "question_title": "How to dynamically build a JSON object?",
+    "question_post": "\r\n                \r\nI am new to Python and I am playing with JSON data. I would like to dynamically build a JSON object by adding some key-value to an existing JSON object.\n\nI tried the following but I get TypeError: 'str' object does not support item assignment:\n\nimport json\n\njson_data = json.dumps({})\njson_data[\"key\"] = \"value\"\n\nprint 'JSON: ', json_data\n\n    ",
+    "answer_post": "\r\nYou build the object before encoding it to a JSON string:\n\nimport json\n\ndata = {}\ndata['key'] = 'value'\njson_data = json.dumps(data)\n\n\nJSON is a serialization format, textual data representing a structure. It is not, itself, that structure.\n    ",
+    "code_snippets": [
+      "import json\n\ndata = {}\ndata['key'] = 'value'\njson_data = json.dumps(data)\n"
+    ],
+    "answer_id": 23110401
+  },
+  {
+    "question_title": "How do I translate an ISO 8601 datetime string into a Python datetime object? [duplicate]",
+    "question_post": "\r\n                    \r\n            \r\n        \r\n            \r\n                \r\n                    \r\n                            \r\n                                This question already has answers here:\r\n                                \r\n                            \r\n                    \r\n                \r\n            \r\n                    \r\n                        How do I parse an ISO 8601-formatted date?\r\n                            \r\n                                (29 answers)\r\n                            \r\n                    \r\n                Closed 8 years ago.\r\n            The community reviewed whether to reopen this question 7 months ago and left it closed:\r\n            \r\n                    Original close reason(s) were not resolved\r\n            \r\n        \r\n\r\n\r\n    \r\n\r\nI'm getting a datetime string in a format like \"2009-05-28T16:15:00\" (this is ISO 8601, I believe). One hackish option seems to be to parse the string using time.strptime and passing the first six elements of the tuple into the datetime constructor, like:\n\ndatetime.datetime(*time.strptime(\"2007-03-04T21:08:12\", \"%Y-%m-%dT%H:%M:%S\")[:6])\n\n\nI haven't been able to find a \"cleaner\" way of doing this. Is there one?\n    ",
+    "answer_post": "\r\nI prefer using the dateutil library for timezone handling and generally solid date parsing. If you were to get an ISO 8601 string like: 2010-05-08T23:41:54.000Z you'd have a fun time parsing that with strptime, especially if you didn't know up front whether or not the timezone was included. pyiso8601 has a couple of issues (check their tracker) that I ran into during my usage and it hasn't been updated in a few years. dateutil, by contrast, has been active and worked for me:\nfrom dateutil import parser\nyourdate = parser.parse(datestring)\n\n    ",
+    "code_snippets": [
+      "from dateutil import parser\nyourdate = parser.parse(datestring)\n"
+    ],
+    "answer_id": 3908349
+  },
+  {
+    "question_title": "How do I convert seconds to hours, minutes and seconds?",
+    "question_post": "\r\n                \r\nI have a function that returns information in seconds, but I need to store that information in hours:minutes:seconds.\n\nIs there an easy way to convert the seconds to this format in Python?\n    ",
+    "answer_post": "\r\nYou can use datetime.timedelta function:\n\n>>> import datetime\n>>> str(datetime.timedelta(seconds=666))\n'0:11:06'\n\n    ",
+    "code_snippets": [
+      ">>> import datetime\n>>> str(datetime.timedelta(seconds=666))\n'0:11:06'\n"
+    ],
+    "answer_id": 775095
+  },
+  {
+    "question_title": "How to declare array of zeros in python (or an array of a certain size) [duplicate]",
+    "question_post": "\r\n                    \r\n            \r\n        \r\n            \r\n                \r\n                    \r\n                            \r\n                                This question already has answers here:\r\n                                \r\n                            \r\n                    \r\n                \r\n            \r\n                    \r\n                        Create an empty list with certain size in Python\r\n                            \r\n                                (18 answers)\r\n                            \r\n                    \r\n                Closed 6 years ago.\r\n        \r\n\r\n\r\n    \r\n\r\nI am trying to build a histogram of counts... so I create buckets.\nI know I could just go through and append a bunch of zeros i.e something along these lines:\n\nbuckets = []\nfor i in xrange(0,100):\n    buckets.append(0)\n\n\nIs there a  more elegant way to do it? I feel like there should be a way to just declare an array of a certain size.\n\nI know numpy has numpy.zeros but I want the more general solution\n    ",
+    "answer_post": "\r\nbuckets = [0] * 100\n\n\nCareful - this technique doesn't generalize to multidimensional arrays or lists of lists. Which leads to the List of lists changes reflected across sublists unexpectedly problem\n    ",
+    "code_snippets": [
+      "buckets = [0] * 100\n"
+    ],
+    "answer_id": 4056782
+  },
+  {
+    "question_title": "How do I find the length (or dimensions, size) of a numpy matrix in python? [duplicate]",
+    "question_post": "\r\n                    \r\n            \r\n        \r\n            \r\n                \r\n                    \r\n                            \r\n                                This question already has answers here:\r\n                                \r\n                            \r\n                    \r\n                \r\n            \r\n                    \r\n                        Numpy array dimensions\r\n                            \r\n                                (10 answers)\r\n                            \r\n                    \r\n                Closed 10 years ago.\r\n        \r\n\r\n\r\n    \r\n\r\nFor a numpy matrix in python\n\nfrom numpy import matrix\nA = matrix([[1,2],[3,4]])\n\n\nHow can I find the length of a row (or column) of this matrix? Equivalently, how can I know the number of rows or columns?\n\nSo far, the only solution I've found is:\n\nlen(A)\nlen(A[:,1])\nlen(A[1,:])\n\n\nWhich returns 2, 2, and 1, respectively. From this I've gathered that len() will return the number of rows, so I can always us the transpose, len(A.T), for the number of columns. However, this feels unsatisfying and arbitrary, as when reading the line len(A), it isn't immediately obvious that this should return the number of rows. It actually works differently than len([1,2]) would for a 2D python array, as this would return 2.\n\nSo, is there a more intuitive way to find the size of a matrix, or is this the best I have?\n    ",
+    "answer_post": "\r\nshape is a property of both numpy ndarray's and matrices.\n\nA.shape\n\n\nwill return a tuple (m, n), where m is the number of rows, and n is the number of columns.\n\nIn fact, the numpy matrix object is built on top of the ndarray object, one of numpy's two fundamental objects (along with a universal function object), so it inherits from ndarray\n    ",
+    "code_snippets": [
+      "A.shape\n"
+    ],
+    "answer_id": 14847459
+  },
+  {
+    "question_title": "How to delete a specific line in a text file using Python?",
+    "question_post": "\r\n                \r\nLet's say I have a text file full of nicknames. How can I delete a specific nickname from this file, using Python?\n    ",
+    "answer_post": "\r\nFirst, open the file and get all your lines from the file. Then reopen the file in write mode and write your lines back, except for the line you want to delete:\n\nwith open(\"yourfile.txt\", \"r\") as f:\n    lines = f.readlines()\nwith open(\"yourfile.txt\", \"w\") as f:\n    for line in lines:\n        if line.strip(\"\\n\") != \"nickname_to_delete\":\n            f.write(line)\n\n\nYou need to strip(\"\\n\") the newline character in the comparison because if your file doesn't end with a newline character the very last line won't either.\n    ",
+    "code_snippets": [
+      "with open(\"yourfile.txt\", \"r\") as f:\n    lines = f.readlines()\nwith open(\"yourfile.txt\", \"w\") as f:\n    for line in lines:\n        if line.strip(\"\\n\") != \"nickname_to_delete\":\n            f.write(line)\n"
+    ],
+    "answer_id": 4710090
+  },
+  {
+    "question_title": "How can I parse (read) and use JSON in Python?",
+    "question_post": "\r\n                \r\nMy Python program receives JSON data, and I need to get bits of information out of it. How can I parse the data and use the result? I think I need to use json.loads for this task, but I can't understand how to do it.\nFor example, suppose that I have jsonStr = '{\"one\" : \"1\", \"two\" : \"2\", \"three\" : \"3\"}'. Given this JSON, and an input of \"two\", how can I get the corresponding data, \"2\"?\n\nBeware that .load is for files; .loads is for strings. See also: Reading JSON from a file.\nOccasionally, a JSON document is intended to represent tabular data. If you have something like this and are trying to use it with Pandas, see Python - How to convert JSON File to Dataframe.\nSome data superficially looks like JSON, but is not JSON.\nFor example, sometimes the data comes from applying repr to native Python data structures. The result may use quotes differently, use title-cased True and False rather than JSON-mandated true and false, etc. For such data, see Convert a String representation of a Dictionary to a dictionary or How to convert string representation of list to a list.\nAnother common variant format puts separate valid JSON-formatted data on each line of the input. (Proper JSON cannot be parsed line by line, because it uses balanced brackets that can be many lines apart.) This format is called JSONL. See Loading JSONL file as JSON objects.\nSometimes JSON data from a web source is padded with some extra text. In some contexts, this works around security restrictions in browsers. This is called JSONP and is described at What is JSONP, and why was it created?. In other contexts, the extra text implements a security measure, as described at Why does Google prepend while(1); to their JSON responses?. Either way, handling this in Python is straightforward: simply identify and remove the extra text, and proceed as before. \n    ",
+    "answer_post": "\r\nVery simple:\nimport json\ndata = json.loads('{\"one\" : \"1\", \"two\" : \"2\", \"three\" : \"3\"}')\nprint(data['two'])  # or `print data['two']` in Python 2\n\n    ",
+    "code_snippets": [
+      "import json\ndata = json.loads('{\"one\" : \"1\", \"two\" : \"2\", \"three\" : \"3\"}')\nprint(data['two'])  # or `print data['two']` in Python 2\n"
+    ],
+    "answer_id": 7771071
+  },
+  {
+    "question_title": "How do you check whether a number is divisible by another number?",
+    "question_post": "\r\n                \r\nI need to test whether each number from 1 to 1000 is a multiple of 3 or a multiple of 5.\nI tried this code in Python 2.x:\nn = 0\ns = 0\n\nwhile (n < 1001):\n    x = n/3\n    if isinstance(x, (int, long)):\n        print 'Multiple of 3!'\n        s = s + n\n    if False:\n        y = n/5\n        if isinstance(y, (int, long)):\n            s = s + n\n\n    print 'Number: '\n    print n\n    print 'Sum:'\n    print s\n    n = n + 1\n\nThe idea is to try dividing the number and see if the result is an integer. However, I'm not getting the expected result.\nHow do I test whether the number is an integer?\n\nIn 2.x, division like this will produce an integer, discarding the remainder; see How can I force division to be floating point? Division keeps rounding down to 0? for details.\nIn 3.x, the division will produce a floating-point value; the result is not \"an integer\" even if it is a whole number, so the isinstance check will fail. See Why does integer division yield a float instead of another integer? for details.\nIf you need the remainder from integer division rather than just testing for divisibility, see Find the division remainder of a number.\n    ",
+    "answer_post": "\r\nYou do this using the modulus operator, %\n\nn % k == 0\n\n\nevaluates true if and only if n is an exact multiple of k. In elementary maths this is known as the remainder from a division.\n\nIn your current approach you perform a division and the result will be either\n\n\nalways an integer if you use integer division, or\nalways a float if you use floating point division.\n\n\nIt's just the wrong way to go about testing divisibility.\n    ",
+    "code_snippets": [
+      "n % k == 0\n"
+    ],
+    "answer_id": 8002234
+  },
+  {
+    "question_title": "How to get last items of a list in Python?",
+    "question_post": "\r\n                \r\nI need the last 9 numbers of a list and I'm sure there is a way to do it with slicing, but I can't seem to get it.  I can get the first 9 like this:\n\nnum_list[0:9]\n\n    ",
+    "answer_post": "\r\nYou can use negative integers with the slicing operator for that. Here's an example using the python CLI interpreter:\n>>> a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]\n>>> a[-9:]\n[4, 5, 6, 7, 8, 9, 10, 11, 12]\n\nthe important line is a[-9:]\n    ",
+    "code_snippets": [
+      ">>> a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]\n>>> a[-9:]\n[4, 5, 6, 7, 8, 9, 10, 11, 12]\n"
+    ],
+    "answer_id": 646654
+  },
+  {
+    "question_title": "How do I check which version of NumPy I'm using?",
+    "question_post": "\r\n                \r\nHow can I check which version of NumPy I'm using?\n    ",
+    "answer_post": "\r\nimport numpy\nnumpy.version.version\n\n    ",
+    "code_snippets": [
+      "import numpy\nnumpy.version.version\n"
+    ],
+    "answer_id": 1520275
+  },
+  {
+    "question_title": "How to get current time in python and break up into year, month, day, hour, minute?",
+    "question_post": "\r\n                \r\nI would like to get the current time in Python and assign them into variables like year, month, day, hour, minute. How can this be done in Python 2.7?\n    ",
+    "answer_post": "\r\nThe datetime module is your friend:\nimport datetime\nnow = datetime.datetime.now()\nprint(now.year, now.month, now.day, now.hour, now.minute, now.second)\n# 2015 5 6 8 53 40\n\nYou don't need separate variables, the attributes on the returned datetime object have all you need.\n    ",
+    "code_snippets": [
+      "import datetime\nnow = datetime.datetime.now()\nprint(now.year, now.month, now.day, now.hour, now.minute, now.second)\n# 2015 5 6 8 53 40\n"
+    ],
+    "answer_id": 30071999
+  },
+  {
+    "question_title": "How to use string.replace() in python 3.x",
+    "question_post": "\r\n                \r\nThe string.replace() is deprecated on python 3.x. What is the new way of doing this?\n    ",
+    "answer_post": "\r\nAs in 2.x, use str.replace().\n\nExample:\n\n>>> 'Hello world'.replace('world', 'Guido')\n'Hello Guido'\n\n    ",
+    "code_snippets": [
+      ">>> 'Hello world'.replace('world', 'Guido')\n'Hello Guido'\n"
+    ],
+    "answer_id": 9452122
+  },
+  {
+    "question_title": "How to check if a string contains an element from a list in Python",
+    "question_post": "\r\n                \r\nI have something like this:\n\nextensionsToCheck = ['.pdf', '.doc', '.xls']\n\nfor extension in extensionsToCheck:\n    if extension in url_string:\n        print(url_string)\n\n\nI am wondering what would be the more elegant way to do this in Python (without using the for loop)? I was thinking of something like this (like from C/C++), but it didn't work:\n\nif ('.pdf' or '.doc' or '.xls') in url_string:\n    print(url_string)\n\n\nEdit: I'm kinda forced to explain how this is different to the question below which is marked as potential duplicate (so it doesn't get closed I guess).  \n\nThe difference is, I wanted to check if a string is part of some list of strings whereas the other question is checking whether a string from a list of strings is a substring of another string. Similar, but not quite the same and semantics matter when you're looking for an answer online IMHO. These two questions are actually looking to solve the opposite problem of one another. The solution for both turns out to be the same though. \n    ",
+    "answer_post": "\r\nUse a generator together with any, which short-circuits on the first True:\n\nif any(ext in url_string for ext in extensionsToCheck):\n    print(url_string)\n\n\nEDIT: I see this answer has been accepted by OP. Though my solution may be \"good enough\" solution to his particular problem, and is a good general way to check if any strings in a list are found in another string, keep in mind that this is all that this solution does. It does not care WHERE the string is found e.g. in the ending of the string. If this is important, as is often the case with urls, you should look to the answer of @Wladimir Palant, or you risk getting false positives.\n    ",
+    "code_snippets": [
+      "if any(ext in url_string for ext in extensionsToCheck):\n    print(url_string)\n"
+    ],
+    "answer_id": 6531704
+  },
+  {
+    "question_title": "How do I get the picture size with PIL?",
+    "question_post": "\r\n                \r\nHow do I get a size of a pictures sides with PIL or any other Python library?\n    ",
+    "answer_post": "\r\nfrom PIL import Image\n\nim = Image.open('whatever.png')\nwidth, height = im.size\n\n\nAccording to the documentation.\n    ",
+    "code_snippets": [
+      "from PIL import Image\n\nim = Image.open('whatever.png')\nwidth, height = im.size\n"
+    ],
+    "answer_id": 6444612
+  },
+  {
+    "question_title": "How to check if one of the following items is in a list?",
+    "question_post": "\r\n                \r\nI'm trying to find a short way to see if any of the following items is in a list, but my first attempt does not work. Besides writing a function to accomplish this, is the any short way to check if one of multiple items is in a list.\n\n>>> a = [2,3,4]\n>>> print (1 or 2) in a\nFalse\n>>> print (2 or 1) in a\nTrue\n\n    ",
+    "answer_post": "\r\n>>> L1 = [2,3,4]\n>>> L2 = [1,2]\n>>> [i for i in L1 if i in L2]\n[2]\n\n\n>>> S1 = set(L1)\n>>> S2 = set(L2)\n>>> S1.intersection(S2)\nset([2])\n\n\nBoth empty lists and empty sets are False, so you can use the value directly as a truth value.\n    ",
+    "code_snippets": [
+      ">>> L1 = [2,3,4]\n>>> L2 = [1,2]\n>>> [i for i in L1 if i in L2]\n[2]\n\n\n>>> S1 = set(L1)\n>>> S2 = set(L2)\n>>> S1.intersection(S2)\nset([2])\n"
+    ],
+    "answer_id": 740294
+  },
+  {
+    "question_title": "How to convert string to binary?",
+    "question_post": "\r\n                \r\nI am in need of a way to get the binary representation of a string in python. e.g. \n\nst = \"hello world\"\ntoBinary(st)\n\n\nIs there a module of some neat way of doing this?\n    ",
+    "answer_post": "\r\nSomething like this?\n\n>>> st = \"hello world\"\n>>> ' '.join(format(ord(x), 'b') for x in st)\n'1101000 1100101 1101100 1101100 1101111 100000 1110111 1101111 1110010 1101100 1100100'\n\n#using `bytearray`\n>>> ' '.join(format(x, 'b') for x in bytearray(st, 'utf-8'))\n'1101000 1100101 1101100 1101100 1101111 100000 1110111 1101111 1110010 1101100 1100100'\n\n    ",
+    "code_snippets": [
+      ">>> st = \"hello world\"\n>>> ' '.join(format(ord(x), 'b') for x in st)\n'1101000 1100101 1101100 1101100 1101111 100000 1110111 1101111 1110010 1101100 1100100'\n\n#using `bytearray`\n>>> ' '.join(format(x, 'b') for x in bytearray(st, 'utf-8'))\n'1101000 1100101 1101100 1101100 1101111 100000 1110111 1101111 1110010 1101100 1100100'\n"
+    ],
+    "answer_id": 18815890
+  },
+  {
+    "question_title": "How to display a float with two decimal places?",
+    "question_post": "\r\n                \r\nI have a function taking float arguments (generally integers or decimals with one significant digit), and I need to output the values in a string with two decimal places (5 \u2192 5.00, 5.5 \u2192 5.50, etc). How can I do this in Python?\n    ",
+    "answer_post": "\r\nYou could use the string formatting operator for that:\n\n>>> '%.2f' % 1.234\n'1.23'\n>>> '%.2f' % 5.0\n'5.00'\n\n\nThe result of the operator is a string, so you can store it in a variable, print etc.\n    ",
+    "code_snippets": [
+      ">>> '%.2f' % 1.234\n'1.23'\n>>> '%.2f' % 5.0\n'5.00'\n"
+    ],
+    "answer_id": 6149026
+  },
+  {
+    "question_title": "How do I split a multi-line string into multiple lines?",
+    "question_post": "\r\n                \r\nI have a multi-line string that I want to do an operation on each line, like so:\ninputString = \"\"\"Line 1\nLine 2\nLine 3\"\"\"\n\nI want to iterate on each line:\nfor line in inputString:\n    doStuff()\n\n    ",
+    "answer_post": "\r\ninputString.splitlines()\n\n\nWill give you a list with each item, the splitlines() method is designed to split each line into a list element.\n    ",
+    "code_snippets": [
+      "inputString.splitlines()\n"
+    ],
+    "answer_id": 172454
+  },
+  {
+    "question_title": "How to open a URL in python",
+    "question_post": "\r\n                \r\nimport urllib\n\nfun open():\n    return urllib.urlopen('http://example.com')\n\nBut when example.com opens it does not render CSS or JavaScript. How can I open the webpage in a web browser?\n@error(404)\ndef error404(error):\n    return webbrowser.open('http://example.com')\n\nI am using bottle. Giving me the error:\n\nTypeError(\"'bool' object is not iterable\",)\n\n\n    ",
+    "answer_post": "\r\nwith the webbrowser module\n\nimport webbrowser\n\nwebbrowser.open('http://example.com')  # Go to example.com\n\n    ",
+    "code_snippets": [
+      "import webbrowser\n\nwebbrowser.open('http://example.com')  # Go to example.com\n"
+    ],
+    "answer_id": 4302041
+  },
+  {
+    "question_title": "How to call a shell script from python code?",
+    "question_post": "\r\n                \r\nHow to call a shell script from python code?\n    ",
+    "answer_post": "\r\nThe subprocess module will help you out.\nBlatantly trivial example:\n>>> import subprocess\n>>> subprocess.call(['sh', './test.sh']) # Thanks @Jim Dennis for suggesting the []\n0 \n>>> \n\nWhere test.sh is a simple shell script and 0 is its return value for this run.\n    ",
+    "code_snippets": [
+      ">>> import subprocess\n>>> subprocess.call(['sh', './test.sh']) # Thanks @Jim Dennis for suggesting the []\n0 \n>>> \n"
+    ],
+    "answer_id": 3777308
+  }
+]

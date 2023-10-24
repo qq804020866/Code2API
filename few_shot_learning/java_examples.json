@@ -1,0 +1,52 @@
+[
+  {
+    "question_title": "How to get the OR operation result of binary represented strings?",
+    "question_post": "\r\n                \r\nI have two strings in the following format:\n\n\"11010\"\n\"00101\"\n\n\nBoth are binary representations. I want to OR these numbers and get the result as follows:\n\n\"11111\"\n\n\nAny idea on how to get it done using Java?\n\nUpadte: \n\nThis is not a duplicate of mentioned question. I am performing OR operator on binary number represented in String format\n    ",
+    "answer_post": "\r\nYou can use the Integer.parse method\n\nint x1 = Integer.parseInt(\"11010\", 2);\nint x2 = Integer.parseInt(\"00101\", 2);\nint val = x1 | x2;\nString binOr = Integer.toBinaryString(val);\n\n    ",
+    "code_snippets": [
+      "int x1 = Integer.parseInt(\"11010\", 2);\nint x2 = Integer.parseInt(\"00101\", 2);\nint val = x1 | x2;\nString binOr = Integer.toBinaryString(val);\n"
+    ],
+    "answer_id": "36104955",
+    "response": "Specific steps: \n\nStep 1: \n\n```java\n// None\n```\n\nStep 2:\n\n```java\npublic class Chatgpt {\n    // method goes here\n}\n```\n\nStep 3: \n\n```java\npublic static\n```\n\nStep 4:\n\n```java\ngetBinaryOrResult\n```\n\nStep 5:\n\n```java\n(String binary1, String binary2)\n```\n\nStep 6: \n\n```java\nreturn Integer.toBinaryString(val);\n```\n\nStep 7: \n\n```java\n// None\n```\nComplete code: \n```java\npublic class Chatgpt {\n    public static String getBinaryOrResult(String binary1, String binary2) {\n        int x1 = Integer.parseInt(binary1, 2);\n        int x2 = Integer.parseInt(binary2, 2);\n        int val = x1 | x2;\n        return Integer.toBinaryString(val);\n    }\n}\n```"
+  },
+  {
+    "question_title": "How can i get an index of a string as an int?",
+    "question_post": "\r\n                \r\nI create an integer and I have to print out the values backwards. So if my number is 12345, it has to print:\n\n5\n4\n3\n2\n1\n\n\nThe numbers have to be on a separate line: \n\nSystem.out.println(number.nextDigit());\n\n\nEach with a method nextDigit(); which returns the next number from the last and it must return an integer not a char or a string.\n\nAny help?\n\nHere is my code: http://pastebin.com/xrpKZixE\n    ",
+    "answer_post": "\r\nProbably easiest to convert to a String, and go from there:\n\nString digits = String.valueOf(number);\nchar thirdDigit = digits.charAt(2);\nint thirdDigitAsNumber = Integer.parseInt(digits.substring(2,3));\n\n    ",
+    "code_snippets": [
+      "String digits = String.valueOf(number);\nchar thirdDigit = digits.charAt(2);\nint thirdDigitAsNumber = Integer.parseInt(digits.substring(2,3));\n"
+    ],
+    "answer_id": "13150145",
+    "response": "Specific steps: \n\nStep 1: \n\n```java\n// None\n```\n\nStep 2:\n\n```java\npublic class Chatgpt {\n    // method goes here\n}\n```\n\nStep 3: \n\n```java\npublic static\n```\n\nStep 4:\n\n```java\ngetThirdDigit\n```\n\nStep 5:\n\n```java\n(int number)\n```\n\nStep 6: \n\n```java\nreturn thirdDigitAsNumber;\n```\n\nStep 7: \n\n```java\n// None\n```\nComplete code: \n```java\npublic class Chatgpt {\n    public static int getThirdDigit(int number) {\n        String digits = String.valueOf(number);\n        char thirdDigit = digits.charAt(2);\n        int thirdDigitAsNumber = Integer.parseInt(digits.substring(2,3));\n        return thirdDigitAsNumber;\n    }\n}\n```"
+  },
+  {
+    "question_title": "How can I slice an int array by stride in Java?",
+    "question_post": "\r\n                \r\nI am learning Java.\n\nIn Python, I can:\n\nmy_list = [1,2,3,4]\nmy_new_list = my_list [::-1]\nprint my_new_list                # [4,3,2,1]\n\n\nIs there any method I can use in Java to do that on int array?\n\nEdit1: Sorry for the bad example. How about my_list [::-2]?\n\nEdit2: What I mean my_list [::-2] is like\n\nmy_list = [1,2,3,4]\nmy_new_list = my_list [::-2]\nprint my_new_list                # [4,2]\n\n\nEdit3: Slicing by stride in Python is to \"check\" the item in a list every step (stride).If the step is negative, Python would check the item from the end of the list to the beginning of the list. For example:\n\nmy_list = [1,2,3,4,5,6,7,8,9]\nmy_list1 = my_list[::2]       # my_list1 becomes [1,3,5,7,9]\nmy_list2 = my_list[::3]       # my_list2 becomes [1,4,7]\nmy_list3 = my_list[::4]       # my_list3 becomes [1,5,9]\nmy_list4 = my_list[::-3]      # my_list4 becomes [9,6,3]\n\n    ",
+    "answer_post": "\r\nYou can convert the array to list then use Collections.reverse() on that list.\n\nInteger a[]={1,2,3,4};\nList <Integer> list = Arrays.asList(a);\nSystem.out.println(list);\nCollections.reverse(list);\nSystem.out.println(list);\n\n\nDEMO\n    ",
+    "code_snippets": [
+      "Integer a[]={1,2,3,4};\nList <Integer> list = Arrays.asList(a);\nSystem.out.println(list);\nCollections.reverse(list);\nSystem.out.println(list);\n"
+    ],
+    "answer_id": "34510983",
+    "response": "Specific steps: \n\nStep 1: \n\n```java\nimport java.util.Arrays;\nimport java.util.Collections;\nimport java.util.List;\n```\n\nStep 2:\n\n```java\npublic class Chatgpt {\n    // method goes here\n}\n```\n\nStep 3: \n\n```java\npublic static\n```\n\nStep 4:\n\n```java\nreverseArray\n```\n\nStep 5:\n\n```java\n(Integer[] a)\n```\n\nStep 6: \n\n```java\nreturn list;\n```\n\nStep 7: \n\n```java\n// None\n```\nComplete code: \n```java\nimport java.util.Arrays;\nimport java.util.Collections;\nimport java.util.List;\n\npublic class Chatgpt {\n    public static List<Integer> reverseArray(Integer[] a) {\n        List<Integer> list = Arrays.asList(a);\n        Collections.reverse(list);\n        return list;\n    }\n}\n```"
+  },
+  {
+    "question_title": "How to write and use regular expression in java",
+    "question_post": "\r\n                \r\nI want to write a regular expression in java which will accept the String having alphabets, numbers, - and space any number of times any where.\n\nThe string should only contain above mentioned and no other special characters. How to code the regular expression in java?\n\nI tried the following, It works when I run it as a java application.\n\nBut the same code when I run in web application and accept the values through XML, It accepts '/'.\n\n String test1 = null;\n\n Scanner scan = new Scanner(System.in);\n test1 = scan.nextLine();\n\n String alphaExp = \"^[a-zA-Z0-9-]*$\";\n\n Pattern r = Pattern.compile(alphaExp);\n Matcher m = r.matcher(test1);\n\n boolean flag = m.lookingAt();\n\n System.out.println(flag);\n\n\nCan anyone help me on this please?\n    ",
+    "answer_post": "\r\nYou can try to use POSIX character classes (see here):\n\nPattern p = Pattern.compile(\"^[\\\\p{Alnum}\\\\p{Space}-]*$\");\nMatcher m = p.matcher(\"asfsdf 1212sdfsd-gf121sdg5 4s\");\nboolean b = m.lookingAt();\n\n\nWith this regular expression if the string you pass contain anything else than alphanumeric or space characters it will be a no match result.\n    ",
+    "code_snippets": [
+      "Pattern p = Pattern.compile(\"^[\\\\p{Alnum}\\\\p{Space}-]*$\");\nMatcher m = p.matcher(\"asfsdf 1212sdfsd-gf121sdg5 4s\");\nboolean b = m.lookingAt();\n"
+    ],
+    "answer_id": "37392329",
+    "response": "Specific steps: \n\nStep 1: \n\n```java\nimport java.util.regex.Pattern;\nimport java.util.regex.Matcher;\n```\n\nStep 2:\n\n```java\npublic class Chatgpt {\n    // method goes here\n}\n```\n\nStep 3: \n\n```java\npublic static\n```\n\nStep 4:\n\n```java\nmatchPattern\n```\n\nStep 5:\n\n```java\n(String input)\n```\n\nStep 6: \n\n```java\nreturn m.lookingAt();\n```\n\nStep 7: \n\n```java\n// None\n```\nComplete code: \n```java\nimport java.util.regex.Pattern;\nimport java.util.regex.Matcher;\n\npublic class Chatgpt {\n    public static boolean matchPattern(String input) {\n        Pattern p = Pattern.compile(\"^[\\\\p{Alnum}\\\\p{Space}-]*$\");\n        Matcher m = p.matcher(input);\n        return m.lookingAt();\n    }\n}\n```"
+  },
+  {
+    "question_title": "How to find a String of last 2 items in colon separated string",
+    "question_post": "\r\n                \r\nI have a string = ab:cd:ef:gh. On this input, I want to return the string  ef:gh (third colon intact).\nThe string apple:orange:cat:dog should return cat:dog (there's always 4 items and 3 colons).\n\nI could have a loop that counts colons and makes a string of characters after the second colon, but I was wondering if there exists some easier way to solve it.\n    ",
+    "answer_post": "\r\nYou can use the split() method for your string.   \n\nString example = \"ab:cd:ef:gh\";\nString[] parts = example.split(\":\");\nSystem.out.println(parts[parts.length-2] + \":\" + parts[parts.length-1]);\n\n    ",
+    "code_snippets": [
+      "String example = \"ab:cd:ef:gh\";\nString[] parts = example.split(\":\");\nSystem.out.println(parts[parts.length-2] + \":\" + parts[parts.length-1]);\n"
+    ],
+    "answer_id": "40115066",
+    "response": "Specific steps: \n\nStep 1: \n\n```java\n// None\n```\n\nStep 2:\n\n```java\npublic class Chatgpt {\n    // method goes here\n}\n```\n\nStep 3: \n\n```java\npublic static\n```\n\nStep 4:\n\n```java\ngetLastTwoItems\n```\n\nStep 5:\n\n```java\n(String input)\n```\n\nStep 6: \n\n```java\nreturn parts[parts.length-2] + \":\" + parts[parts.length-1];\n```\n\nStep 7: \n\n```java\n// None\n```\nComplete code: \n```java\npublic class Chatgpt {\n    public static String getLastTwoItems(String input) {\n        String[] parts = input.split(\":\");\n        return parts[parts.length-2] + \":\" + parts[parts.length-1];\n    }\n}\n```"
+  }
+]
